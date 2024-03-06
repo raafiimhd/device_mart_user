@@ -9,7 +9,7 @@ class Datum {
   DateTime? transactionTime;
   @JsonKey(name: 'user_id')
   int? userId;
-  int? amount;
+  double? amount;
   @JsonKey(name: 'transaction_type')
   String? transactionType;
 

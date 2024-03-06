@@ -207,11 +207,11 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       result.fold(
           (failure) => emit(state.copyWith(
               hasError: true,
-              message: 'Coupon is Not available now',
+              message: 'Coupon is not available or Referesh your screen',
               isLoading: false)), (resp) {
         emit(state.copyWith(
             isLoading: false, coupon: resp.data!, hasError: false));
-             add(GetCartEvent(
+        add(GetCartEvent(
             getCartQurreyModel: GetCartQurreyModel(page: 1, count: 30)));
       });
     });
@@ -233,11 +233,9 @@ class CartBloc extends Bloc<CartEvent, CartState> {
             discount: discountedAmount,
             message: r.message,
             hasError: false));
-             add(GetCartEvent(
-            getCartQurreyModel: GetCartQurreyModel(page: 1, count: 30)));
-            
       });
     });
+
   }
 
   Map<int, int> setQuantity(List<Items> items) {

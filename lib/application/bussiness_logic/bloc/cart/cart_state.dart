@@ -7,6 +7,7 @@ class CartState with _$CartState {
       required bool hasError,
       required bool quantityIndicator,
       required bool isCoupon,
+      required bool isCouponsFetched,
       required Map<int, int> cartItems,
       required bool isDone,
       String? message,
@@ -27,6 +28,7 @@ class CartState with _$CartState {
       isCoupon: false,
       hasError: false,
       cartItems: {},
+      isCouponsFetched: false,
       quantityIndicator: false,
       isDone: false);
 }

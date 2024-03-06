@@ -17,7 +17,6 @@ import 'package:device/domain/models/profile/edit/verify_password_model/verify_p
 import 'package:device/domain/models/profile/get_profile/data.dart';
 import 'package:device/domain/models/profile/get_refferal_bonus/get_refferal_bonus.dart';
 import 'package:device/domain/models/profile/refferal_bonus_qurrey/rafferal_resp.dart';
-import 'package:device/domain/models/profile/refferal_bonus_qurrey/refferal_bonus_qurrey.dart';
 import 'package:device/domain/models/profile/wallet_history/wallet_history.dart';
 import 'package:device/domain/models/profile/wallet_model/wallet_model.dart';
 import 'package:device/domain/models/profile/wallet_resp_model/wallet_rep_model.dart';
@@ -114,6 +113,32 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
             isLoading: false, hasError: true, message: 'Something went Wrong'));
       }
     });
+    on<GetAddressEvent>((event, emit) async {
+      emit(state.copyWith(isLoading: true));
+      final result = await repositery.getAddress();
+      result.fold(
+        (failure) => emit(state.copyWith(
+          isLoading: false,
+          hasError: true,
+          message: failure.message,
+        )),
+        (resp) {
+          if (resp.data != null && resp.data!.isNotEmpty) {
+            defaultAddress =
+                resp.data!.firstWhere((element) => element.isDefault!);
+          } else {
+            defaultAddress = null;
+          }
+          emit(state.copyWith(
+            hasError: false,
+            getAddressModel: resp.data,
+            message: resp.message,
+            isLoading: false,
+          ));
+        },
+      );
+    });
+
     on<AddStateEvent>((event, emit) async {
       emit(state.copyWith(isLoading: true));
       final result = await repositery.addState();
@@ -148,32 +173,6 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       emit(state.copyWith(id: event.stateId, stateName: event.stateName));
     });
 
-    on<GetAddressEvent>((event, emit) async {
-      emit(state.copyWith(isLoading: true));
-      final result = await repositery.getAddress();
-      result.fold(
-        (failure) => emit(state.copyWith(
-          isLoading: false,
-          hasError: true,
-          message: failure.message,
-        )),
-        (resp) {
-          if (resp.data != null && resp.data!.isNotEmpty) {
-            defaultAddress =
-                resp.data!.firstWhere((element) => element.isDefault!);
-          } else {
-            defaultAddress = null;
-          }
-          emit(state.copyWith(
-            hasError: false,
-            getAddressModel: resp.data,
-            message: resp.message,
-            isLoading: false,
-          ));
-        },
-      );
-    });
-
     on<DeleteAddressEvent>((event, emit) async {
       emit(state.copyWith(isLoading: true));
       final result = await repositery.deleteAddress(
@@ -198,19 +197,20 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
           idQurreyModel: IdQurreyModel(id: event.getAddressModel.id));
       result.fold(
           (l) => emit(state.copyWith(hasError: true, message: l.message)),
-          (r) => emit(state.copyWith(hasError: false, message: r.message,defaultRespModel: r)));
+          (r) => emit(state.copyWith(
+              hasError: false,
+              message: r.message,
+              defaultRespModel: r,
+              showList: !state.showList)));
     });
     on<ShowListEvent>(
         (event, emit) => emit(state.copyWith(showList: !state.showList)));
 
     on<GetWalletEvent>((event, emit) async {
-      emit(state.copyWith(isLoading: true));
       final result = await repositery.getUserWallet();
       result.fold(
           (failure) => emit(state.copyWith(
-              hasError: true,
-              isLoading: false,
-              message: 'Please Create a Wallet')),
+              hasError: true, isLoading: false, message: failure.message)),
           (resp) => emit(state.copyWith(
               isLoading: false,
               hasError: false,
@@ -219,11 +219,10 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     });
     on<GetWalletHistoryEvent>((event, emit) async {
       final result = await repositery.getWalletHistory();
-      result.fold(
-          (failure) => emit(state.copyWith(
-              isLoading: false,
-              hasError: true,
-              message: 'Please Create a Wallet')),
+      result.fold((failure) {
+        emit(state.copyWith(
+            isLoading: false, hasError: true, message: failure.message));
+      },
           (resp) => emit(state.copyWith(
               isLoading: false,
               walletHistory: resp,
@@ -240,31 +239,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
               message: 'User already have a wallet')), (resp) {
         emit(state.copyWith(
             hasError: false, message: resp.message, walletRespModel: resp));
-        add(ProfileEvent.getWalletEvent());
       });
-    });
-    on<GetRefferalBonusEvent>((event, emit) async {
-      try {
-        final result = await repositery.getRefferalBonus();
-        await result.fold((l) => throw Exception('Something Wrong'),
-            (resp) async {
-          if (resp.statusCode == 200) {
-            final newResult = await profileProvider.refferalBonus(
-                refferalBonusQurrey:
-                    RefferalBonusQurrey(code: resp.data!.refferalCode));
-            newResult.fold(
-                (failure) => emit(state.copyWith(
-                    hasError: true, message: 'Not allowed to use this coupon')),
-                (resp) => emit(state.copyWith(
-                    hasError: false,
-                    refferalResp: resp,
-                    message: resp.message)));
-          }
-        });
-      } catch (e) {
-        emit(state.copyWith(
-            isLoading: false, hasError: true, message: 'Something went Wrong'));
-      }
     });
   }
 

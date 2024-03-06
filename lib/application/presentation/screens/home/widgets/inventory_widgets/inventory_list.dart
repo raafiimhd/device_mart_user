@@ -9,7 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class InventoryListWidget extends StatelessWidget {
-  const InventoryListWidget({Key? key});
+  const InventoryListWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -72,20 +72,18 @@ class InventoryListWidget extends StatelessWidget {
                   child: Stack(
                     children: [
                       Positioned(
-                        top: 15,
-                        left: 10,
-                        child: Container(
-                          height: 100,
-                          width: 140,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: NetworkImage(
-                                inventoryState.images!['urls'].first,
-                              ),
+                          top: 15,
+                          left: 10,
+                          child: Container(
+                            height: 100,
+                            width: 140,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: NetworkImage( inventoryState.images!['urls'].first
+                                    
+                              )),
                             ),
-                          ),
-                        )
-                      ),
+                          )),
                       Positioned(
                         right: 3,
                         child: FavButton(

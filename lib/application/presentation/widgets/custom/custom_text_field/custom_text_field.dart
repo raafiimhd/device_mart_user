@@ -47,7 +47,7 @@ class CustomTextFormField extends StatelessWidget {
             controller: controller,
             decoration: InputDecoration(
               focusedBorder:
-                  OutlineInputBorder(borderSide: BorderSide(color: kBlack)),
+                  const OutlineInputBorder(borderSide: BorderSide(color: kBlack)),
               prefixIcon: prefixIcon != null ? Icon(prefixIcon) : null,
               suffixIcon: isPassword
                   ? IconButton(

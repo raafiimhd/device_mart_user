@@ -1,3 +1,4 @@
+
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
@@ -19,8 +20,6 @@ import 'package:device/domain/models/profile/edit/verify_password_model/verify_p
 import 'package:device/domain/models/profile/edit/verify_password_model/verify_password_resp_model.dart';
 import 'package:device/domain/models/profile/get_profile/profile.dart';
 import 'package:device/domain/models/profile/get_refferal_bonus/get_refferal_bonus.dart';
-import 'package:device/domain/models/profile/refferal_bonus_qurrey/rafferal_resp.dart';
-import 'package:device/domain/models/profile/refferal_bonus_qurrey/refferal_bonus_qurrey.dart';
 import 'package:device/domain/models/profile/wallet_history/wallet_history.dart';
 import 'package:device/domain/models/profile/wallet_model/wallet_model.dart';
 import 'package:device/domain/models/profile/wallet_resp_model/wallet_rep_model.dart';
@@ -299,9 +298,12 @@ class ProfileProvider implements ProfileRepositery {
         return Left(
             ErrorMsg(message: WalletModel.fromJson(response.data).message!));
       }
-    } on DioException {
+    }  on DioException catch (dioError) {
+      log('Requested URL: ${dioError.requestOptions.uri}');
+      log('dio error => ${dioError.message.toString()}');
       return Left(ErrorMsg(message: errorMsg));
     } catch (e) {
+      log('dio error => ${e.toString()}');
       return Left(ErrorMsg(message: errorMsg));
     }
   }
@@ -325,9 +327,12 @@ class ProfileProvider implements ProfileRepositery {
         return Left(
             ErrorMsg(message: WalletHistory.fromJson(response.data).message!));
       }
-    } on DioException {
+    } on DioException catch (dioError) {
+      log('Requested URL: ${dioError.requestOptions.uri}');
+      log('dio error => ${dioError.message.toString()}');
       return Left(ErrorMsg(message: errorMsg));
     } catch (e) {
+      log('dio error => ${e.toString()}');
       return Left(ErrorMsg(message: errorMsg));
     }
   }
@@ -375,42 +380,9 @@ class ProfileProvider implements ProfileRepositery {
         return Left(ErrorMsg(
             message: GetAddressRespModel.fromJson(response.data).message!));
       }
-    } on DioException catch (dioError) {
-      log('Requested URL: ${dioError.requestOptions.uri}');
-      log('dio error => ${dioError.message.toString()}');
+    } on DioException {
       return Left(ErrorMsg(message: errorMsg));
     } catch (e) {
-      log('dio error => ${e.toString()}');
-      return Left(ErrorMsg(message: errorMsg));
-    }
-  }
-
-  @override
-  Future<Either<ErrorMsg, RefferalResp>> refferalBonus(
-      {required RefferalBonusQurrey refferalBonusQurrey}) async {
-    try {
-      final token = await secureStorage.read(key: 'token');
-
-      if (token != null) {
-        dio.options.headers["Authorization"] = 'Bearer $token';
-        dio.options.headers["accept"] = 'application/json';
-      } else {
-        return Left(ErrorMsg(message: 'Token is null.'));
-      }
-      final response = await dio.post(ApiEndPoint.baseUrl+ ApiEndPoint.refferalBonusEndPoint,
-          data: refferalBonusQurrey.toJson());
-      if (response.statusCode == 200) {
-        return Right(RefferalResp.fromJson(response.data));
-      } else {
-        return Left(
-            ErrorMsg(message: RefferalResp.fromJson(response.data).message!));
-      }
-    } on DioException catch (dioError) {
-      log('Requested URL: ${dioError.requestOptions.uri}');
-      log('dio error => ${dioError.message.toString()}');
-      return Left(ErrorMsg(message: errorMsg));
-    } catch (e) {
-      log('dio error => ${e.toString()}');
       return Left(ErrorMsg(message: errorMsg));
     }
   }

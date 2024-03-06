@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:device/application/bussiness_logic/bloc/order/order_bloc.dart';
 import 'package:device/application/bussiness_logic/bloc/profile/profile_bloc.dart';
-import 'package:device/application/presentation/routes/routes.dart';
 import 'package:device/application/presentation/screens/main_page/main_page.dart';
 import 'package:device/application/presentation/screens/order/widgets/animation_screen.dart';
 import 'package:device/application/presentation/screens/settings/widgets/profile/address/address_screen.dart';
@@ -28,9 +27,10 @@ class ScreenCheckout extends StatefulWidget {
 class _ScreenCheckoutState extends State<ScreenCheckout> {
   int priceTotal = 0;
   var razorpay = Razorpay();
+  bool isPlaceOrderClicked = false;
   @override
   void initState() {
-    context.read<OrderBloc>().add(GetRazorpayEvent());
+    context.read<OrderBloc>().add(const GetRazorpayEvent());
     razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, _handlePaymentSuccess);
     razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);
     razorpay.on(Razorpay.EVENT_EXTERNAL_WALLET, _handleExternalWallet);
@@ -44,13 +44,6 @@ class _ScreenCheckoutState extends State<ScreenCheckout> {
   }
 
   void _handlePaymentSuccess(PaymentSuccessResponse response) async {
-    // Do something when payment succeeds
-
-    log("payment is success");
-    log("pymtn id  ${response.paymentId}");
-    log("order id  ${response.orderId}");
-    log("sign id  ${response.signature}");
-    log("place order");
     context.read<OrderBloc>().add(OrderEvent.razorpayProcess(
         razorpayProcesModel: RazorpayProcesModel(
             razorpayPaymentId: response.paymentId,
@@ -61,7 +54,7 @@ class _ScreenCheckoutState extends State<ScreenCheckout> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          content: Text("Payment is Success"),
+          content: const Text("Payment is Success"),
           actions: [
             TextButton(
                 onPressed: () {
@@ -69,7 +62,7 @@ class _ScreenCheckoutState extends State<ScreenCheckout> {
                       MaterialPageRoute(builder: (context) => MainPage()),
                       (route) => false);
                 },
-                child: Text("Ok")),
+                child: const Text("Ok")),
           ],
         );
       },
@@ -88,15 +81,14 @@ class _ScreenCheckoutState extends State<ScreenCheckout> {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child: Text("Ok")),
+                child: const Text("Ok")),
           ],
         );
       },
     );
   }
 
-  void _handleExternalWallet(ExternalWalletResponse response) {
-  }
+  void _handleExternalWallet(ExternalWalletResponse response) {}
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -104,7 +96,7 @@ class _ScreenCheckoutState extends State<ScreenCheckout> {
       context.read<ProfileBloc>().add(const ProfileEvent.getAddressEvent());
     });
     return Scaffold(
-      appBar: PreferredSize(
+      appBar: const PreferredSize(
           preferredSize: Size.fromHeight(56),
           child: CustomAppBar(title: 'Checkout')),
       body: SafeArea(
@@ -130,11 +122,24 @@ class _ScreenCheckoutState extends State<ScreenCheckout> {
                       showSnack(
                           context: context,
                           message: state.message!,
-                          color: state.hasError ? kRed : kGreen);
+                          color: kRed);
                     }
-                    if (state.message == 'Order placed') {
-                      Navigator.pushNamedAndRemoveUntil(
-                          context, Routes.home, (route) => false);
+                    if (isPlaceOrderClicked&&state.isDone &&
+                        state.message == 'Success,order placed.') {
+                      Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(
+                              builder: (context) => AnimationScreen(
+                                    id: state.selectPayementId!,
+                                  )),
+                          (route) => false);
+                    }
+                    if (isPlaceOrderClicked&&state.isDone && state.message == 'Success') {
+                      Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(
+                              builder: (context) => AnimationScreen(
+                                    id: state.selectPayementId!,
+                                  )),
+                          (route) => false);
                     }
                   },
                   builder: (context, state) {
@@ -205,38 +210,22 @@ class _ScreenCheckoutState extends State<ScreenCheckout> {
                       context: context, message: 'Add address and try again');
                   return;
                 } else if (state.selectPayementId == null) {
+                  
                   showSnack(
                       context: context, message: 'Choose a payment option');
                   return;
                 } else if (state.selectPayementId == 1) {
+                  isPlaceOrderClicked = true;
                   context
                       .read<OrderBloc>()
-                      .add(OrderEvent.cashOnDeliveryEvent());
-                  if (state.successRespModel != null &&
-                      state.successRespModel!.message ==
-                          'Success,order placed.') {
-                    Navigator.of(context).pushAndRemoveUntil(
-                        MaterialPageRoute(
-                            builder: (context) => AnimationScreen(
-                                  id: state.selectPayementId!,
-                                )),
-                        (route) => false);
-                  }
+                      .add(const OrderEvent.cashOnDeliveryEvent());
                 } else if (state.selectPayementId == 2) {
                   if (state.razor != null) {
                     paymentFunction(razor: state.razor!);
                   }
                 } else if (state.selectPayementId == 3) {
-                  context.read<OrderBloc>().add(OrderEvent.selectWalletEvent());
-                  if (
-                      state.selectWalletResp!.message == 'Success') {
-                    Navigator.of(context).pushAndRemoveUntil(
-                        MaterialPageRoute(
-                            builder: (context) => AnimationScreen(
-                                  id: state.selectPayementId!,
-                                )),
-                        (route) => false);
-                  } 
+                  isPlaceOrderClicked = true;
+                  context.read<OrderBloc>().add(const OrderEvent.selectWalletEvent());
                 }
               },
               style: elevatedButtonStyleBlack,
@@ -249,8 +238,6 @@ class _ScreenCheckoutState extends State<ScreenCheckout> {
   }
 
   void paymentFunction({required RazorPayModel razor}) async {
-    print(razor.data!.amount!);
-    print(razor.data!.razorpayOrderId);
     Map<String, dynamic> options = {
       'key': 'rzp_test_uWMYS3WEXJOc8p',
       'amount': razor.data!.amount!,
@@ -364,7 +351,7 @@ class CheckOutAddressTile extends StatelessWidget {
                           IconButton(
                               onPressed: () {
                                 Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => AddAddressScreen()));
+                                    builder: (context) => const AddAddressScreen()));
                               },
                               icon: const Icon(Icons.add)),
                           IconButton(

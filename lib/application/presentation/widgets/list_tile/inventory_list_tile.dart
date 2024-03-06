@@ -19,7 +19,7 @@ class InventoryListTile extends StatelessWidget {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => InventoryDetails(
                       id: inventory.id!,
-                      isWishlisted: inventory.isWishlisted!)));
+                      isWishlisted: inventory.isWishlisted??true)));
             },
             child: Stack(children: [
               ImageShowContainerWishlist(inventory: inventory, height: 0.50),

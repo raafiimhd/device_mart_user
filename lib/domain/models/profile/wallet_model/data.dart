@@ -7,7 +7,7 @@ class Data {
   int? id;
   @JsonKey(name: 'user_id')
   int? userId;
-  int? amount;
+  double? amount;
 
   Data({this.id, this.userId, this.amount});
 

@@ -32,7 +32,7 @@ class SecurityScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              kHeight20,
+              kHeightTwenty,
               ChangeTextFormFieldWidget(
                   hintText: 'Name',
                   controller: profileBloc.editNameController,
@@ -58,8 +58,8 @@ class SecurityScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              kHeight20,
-              Divider(
+              kHeightTwenty,
+              const Divider(
                 color: kBlack,
               ),
               ChangeTextFormFieldWidget(

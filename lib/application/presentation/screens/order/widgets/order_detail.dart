@@ -7,7 +7,6 @@ import 'package:device/application/presentation/utils/show_snack_bar/show_snack_
 import 'package:device/application/presentation/widgets/custom/custom_appbar/custom_appbar.dart';
 import 'package:device/domain/core/color/colors.dart';
 import 'package:device/domain/core/constants/const.dart';
-import 'package:device/domain/models/order/get_order_model/datum.dart';
 import 'package:device/domain/models/order/order_qurrey_model/order_qurrey.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -75,7 +74,7 @@ class OrderDetailViews extends StatelessWidget {
                     ),
                     Text(
                       data.deliveryAddress!,
-                      style: TextStyle(fontSize: 18),
+                      style: const TextStyle(fontSize: 18),
                     ),
                     kHeightTen,
                     TextButton(

@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:device/domain/core/constants/api_endpoint/api_endpoint.dart';
@@ -202,48 +201,19 @@ class CartProvider implements CartRepositery {
         return Left(ErrorMsg(message: 'Token is null.'));
       }
 
-      final response = await dio.post(
-          ApiEndPoint.applyCouponEndPoint
-              ,data: applyCouponModel.toJson());
+      final response = await dio.post(ApiEndPoint.applyCouponEndPoint,
+          data: applyCouponModel.toJson());
       if (response.statusCode == 200) {
         return Right(ApplyCouponRespModel.fromJson(response.data));
       } else {
         return Left(ErrorMsg(
             message: ApplyCouponRespModel.fromJson(response.data).message!));
       }
-    } on DioException catch (dioError) {
-      log('Requested URL: ${dioError.requestOptions.uri}');
-      log('dio error => ${dioError.message.toString()}');
+    } on DioException {
       return Left(ErrorMsg(message: errorMsg));
     } catch (e) {
-      log('dio error => ${e.toString()}');
       return Left(ErrorMsg(message: errorMsg));
     }
   }
 
-  // @override
-  // Future<Either<ErrorMsg, ApplyCouponRespModel>> applyCoupon(
-  //     {required GetCouponModel getCouponModel}) async {
-  //   try {
-  //     final token = await secureStorage.read(key: 'token');
-  //     if (token != null) {
-  //       dio.options.headers["Authorization"] = 'Bearer $token';
-  //       dio.options.headers["accept"] = 'application/json';
-  //     } else {
-  //       return Left(ErrorMsg(message: 'Token is null.'));
-  //     }
-  //     final response = await dio.post(ApiEndPoint.applyCouponEndPoint,
-  //         data: getCouponModel.toJson());
-  //     if (response.statusCode == 200 || response.statusCode == 201) {
-  //       return Right(ApplyCouponRespModel.fromJson(response.data));
-  //     } else {
-  //       return Left(ErrorMsg(
-  //           message: ApplyCouponRespModel.fromJson(response.data).message!));
-  //     }
-  //   } on DioException {
-  //     return Left(ErrorMsg(message: errorMsg));
-  //   } catch (e) {
-  //     return Left(ErrorMsg(message: errorMsg));
-  //   }
-  // }
 }

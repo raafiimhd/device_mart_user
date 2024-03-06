@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ScreenHome extends StatelessWidget {
-  const ScreenHome({Key? key});
+  const ScreenHome({super.key});
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size.width * 0.06;

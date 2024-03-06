@@ -33,9 +33,6 @@ mixin _$ProfileEvent {
     required TResult Function() getWalletEvent,
     required TResult Function() getWalletHistoryEvent,
     required TResult Function() createWalletEvent,
-    required TResult Function() getRefferalBonusEvent,
-    required TResult Function(RefferalBonusQurrey refferalBonusQurrey)
-        refferalBonusEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,9 +51,6 @@ mixin _$ProfileEvent {
     TResult? Function()? getWalletEvent,
     TResult? Function()? getWalletHistoryEvent,
     TResult? Function()? createWalletEvent,
-    TResult? Function()? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -74,9 +68,6 @@ mixin _$ProfileEvent {
     TResult Function()? getWalletEvent,
     TResult Function()? getWalletHistoryEvent,
     TResult Function()? createWalletEvent,
-    TResult Function()? getRefferalBonusEvent,
-    TResult Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -96,9 +87,6 @@ mixin _$ProfileEvent {
     required TResult Function(GetWalletHistoryEvent value)
         getWalletHistoryEvent,
     required TResult Function(CreateWalletEvent value) createWalletEvent,
-    required TResult Function(GetRefferalBonusEvent value)
-        getRefferalBonusEvent,
-    required TResult Function(RefferalBonusEvent value) refferalBonusEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -116,8 +104,6 @@ mixin _$ProfileEvent {
     TResult? Function(GetWalletEvent value)? getWalletEvent,
     TResult? Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
     TResult? Function(CreateWalletEvent value)? createWalletEvent,
-    TResult? Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusEvent value)? refferalBonusEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -135,8 +121,6 @@ mixin _$ProfileEvent {
     TResult Function(GetWalletEvent value)? getWalletEvent,
     TResult Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
     TResult Function(CreateWalletEvent value)? createWalletEvent,
-    TResult Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult Function(RefferalBonusEvent value)? refferalBonusEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -213,9 +197,6 @@ class _$GetProfileEventImpl implements _GetProfileEvent {
     required TResult Function() getWalletEvent,
     required TResult Function() getWalletHistoryEvent,
     required TResult Function() createWalletEvent,
-    required TResult Function() getRefferalBonusEvent,
-    required TResult Function(RefferalBonusQurrey refferalBonusQurrey)
-        refferalBonusEvent,
   }) {
     return getProfileEvent();
   }
@@ -237,9 +218,6 @@ class _$GetProfileEventImpl implements _GetProfileEvent {
     TResult? Function()? getWalletEvent,
     TResult? Function()? getWalletHistoryEvent,
     TResult? Function()? createWalletEvent,
-    TResult? Function()? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
   }) {
     return getProfileEvent?.call();
   }
@@ -260,9 +238,6 @@ class _$GetProfileEventImpl implements _GetProfileEvent {
     TResult Function()? getWalletEvent,
     TResult Function()? getWalletHistoryEvent,
     TResult Function()? createWalletEvent,
-    TResult Function()? getRefferalBonusEvent,
-    TResult Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
     required TResult orElse(),
   }) {
     if (getProfileEvent != null) {
@@ -288,9 +263,6 @@ class _$GetProfileEventImpl implements _GetProfileEvent {
     required TResult Function(GetWalletHistoryEvent value)
         getWalletHistoryEvent,
     required TResult Function(CreateWalletEvent value) createWalletEvent,
-    required TResult Function(GetRefferalBonusEvent value)
-        getRefferalBonusEvent,
-    required TResult Function(RefferalBonusEvent value) refferalBonusEvent,
   }) {
     return getProfileEvent(this);
   }
@@ -311,8 +283,6 @@ class _$GetProfileEventImpl implements _GetProfileEvent {
     TResult? Function(GetWalletEvent value)? getWalletEvent,
     TResult? Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
     TResult? Function(CreateWalletEvent value)? createWalletEvent,
-    TResult? Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusEvent value)? refferalBonusEvent,
   }) {
     return getProfileEvent?.call(this);
   }
@@ -333,8 +303,6 @@ class _$GetProfileEventImpl implements _GetProfileEvent {
     TResult Function(GetWalletEvent value)? getWalletEvent,
     TResult Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
     TResult Function(CreateWalletEvent value)? createWalletEvent,
-    TResult Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult Function(RefferalBonusEvent value)? refferalBonusEvent,
     required TResult orElse(),
   }) {
     if (getProfileEvent != null) {
@@ -428,9 +396,6 @@ class _$EditUserNameEventImpl implements _EditUserNameEvent {
     required TResult Function() getWalletEvent,
     required TResult Function() getWalletHistoryEvent,
     required TResult Function() createWalletEvent,
-    required TResult Function() getRefferalBonusEvent,
-    required TResult Function(RefferalBonusQurrey refferalBonusQurrey)
-        refferalBonusEvent,
   }) {
     return editUserNameEvent(user);
   }
@@ -452,9 +417,6 @@ class _$EditUserNameEventImpl implements _EditUserNameEvent {
     TResult? Function()? getWalletEvent,
     TResult? Function()? getWalletHistoryEvent,
     TResult? Function()? createWalletEvent,
-    TResult? Function()? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
   }) {
     return editUserNameEvent?.call(user);
   }
@@ -475,9 +437,6 @@ class _$EditUserNameEventImpl implements _EditUserNameEvent {
     TResult Function()? getWalletEvent,
     TResult Function()? getWalletHistoryEvent,
     TResult Function()? createWalletEvent,
-    TResult Function()? getRefferalBonusEvent,
-    TResult Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
     required TResult orElse(),
   }) {
     if (editUserNameEvent != null) {
@@ -503,9 +462,6 @@ class _$EditUserNameEventImpl implements _EditUserNameEvent {
     required TResult Function(GetWalletHistoryEvent value)
         getWalletHistoryEvent,
     required TResult Function(CreateWalletEvent value) createWalletEvent,
-    required TResult Function(GetRefferalBonusEvent value)
-        getRefferalBonusEvent,
-    required TResult Function(RefferalBonusEvent value) refferalBonusEvent,
   }) {
     return editUserNameEvent(this);
   }
@@ -526,8 +482,6 @@ class _$EditUserNameEventImpl implements _EditUserNameEvent {
     TResult? Function(GetWalletEvent value)? getWalletEvent,
     TResult? Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
     TResult? Function(CreateWalletEvent value)? createWalletEvent,
-    TResult? Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusEvent value)? refferalBonusEvent,
   }) {
     return editUserNameEvent?.call(this);
   }
@@ -548,8 +502,6 @@ class _$EditUserNameEventImpl implements _EditUserNameEvent {
     TResult Function(GetWalletEvent value)? getWalletEvent,
     TResult Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
     TResult Function(CreateWalletEvent value)? createWalletEvent,
-    TResult Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult Function(RefferalBonusEvent value)? refferalBonusEvent,
     required TResult orElse(),
   }) {
     if (editUserNameEvent != null) {
@@ -623,9 +575,6 @@ class _$VerifyPasswordEventImpl implements VerifyPasswordEvent {
     required TResult Function() getWalletEvent,
     required TResult Function() getWalletHistoryEvent,
     required TResult Function() createWalletEvent,
-    required TResult Function() getRefferalBonusEvent,
-    required TResult Function(RefferalBonusQurrey refferalBonusQurrey)
-        refferalBonusEvent,
   }) {
     return verifyPasswordEvent();
   }
@@ -647,9 +596,6 @@ class _$VerifyPasswordEventImpl implements VerifyPasswordEvent {
     TResult? Function()? getWalletEvent,
     TResult? Function()? getWalletHistoryEvent,
     TResult? Function()? createWalletEvent,
-    TResult? Function()? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
   }) {
     return verifyPasswordEvent?.call();
   }
@@ -670,9 +616,6 @@ class _$VerifyPasswordEventImpl implements VerifyPasswordEvent {
     TResult Function()? getWalletEvent,
     TResult Function()? getWalletHistoryEvent,
     TResult Function()? createWalletEvent,
-    TResult Function()? getRefferalBonusEvent,
-    TResult Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
     required TResult orElse(),
   }) {
     if (verifyPasswordEvent != null) {
@@ -698,9 +641,6 @@ class _$VerifyPasswordEventImpl implements VerifyPasswordEvent {
     required TResult Function(GetWalletHistoryEvent value)
         getWalletHistoryEvent,
     required TResult Function(CreateWalletEvent value) createWalletEvent,
-    required TResult Function(GetRefferalBonusEvent value)
-        getRefferalBonusEvent,
-    required TResult Function(RefferalBonusEvent value) refferalBonusEvent,
   }) {
     return verifyPasswordEvent(this);
   }
@@ -721,8 +661,6 @@ class _$VerifyPasswordEventImpl implements VerifyPasswordEvent {
     TResult? Function(GetWalletEvent value)? getWalletEvent,
     TResult? Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
     TResult? Function(CreateWalletEvent value)? createWalletEvent,
-    TResult? Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusEvent value)? refferalBonusEvent,
   }) {
     return verifyPasswordEvent?.call(this);
   }
@@ -743,8 +681,6 @@ class _$VerifyPasswordEventImpl implements VerifyPasswordEvent {
     TResult Function(GetWalletEvent value)? getWalletEvent,
     TResult Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
     TResult Function(CreateWalletEvent value)? createWalletEvent,
-    TResult Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult Function(RefferalBonusEvent value)? refferalBonusEvent,
     required TResult orElse(),
   }) {
     if (verifyPasswordEvent != null) {
@@ -811,9 +747,6 @@ class _$AddStateEventImpl implements AddStateEvent {
     required TResult Function() getWalletEvent,
     required TResult Function() getWalletHistoryEvent,
     required TResult Function() createWalletEvent,
-    required TResult Function() getRefferalBonusEvent,
-    required TResult Function(RefferalBonusQurrey refferalBonusQurrey)
-        refferalBonusEvent,
   }) {
     return addStateEvent();
   }
@@ -835,9 +768,6 @@ class _$AddStateEventImpl implements AddStateEvent {
     TResult? Function()? getWalletEvent,
     TResult? Function()? getWalletHistoryEvent,
     TResult? Function()? createWalletEvent,
-    TResult? Function()? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
   }) {
     return addStateEvent?.call();
   }
@@ -858,9 +788,6 @@ class _$AddStateEventImpl implements AddStateEvent {
     TResult Function()? getWalletEvent,
     TResult Function()? getWalletHistoryEvent,
     TResult Function()? createWalletEvent,
-    TResult Function()? getRefferalBonusEvent,
-    TResult Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
     required TResult orElse(),
   }) {
     if (addStateEvent != null) {
@@ -886,9 +813,6 @@ class _$AddStateEventImpl implements AddStateEvent {
     required TResult Function(GetWalletHistoryEvent value)
         getWalletHistoryEvent,
     required TResult Function(CreateWalletEvent value) createWalletEvent,
-    required TResult Function(GetRefferalBonusEvent value)
-        getRefferalBonusEvent,
-    required TResult Function(RefferalBonusEvent value) refferalBonusEvent,
   }) {
     return addStateEvent(this);
   }
@@ -909,8 +833,6 @@ class _$AddStateEventImpl implements AddStateEvent {
     TResult? Function(GetWalletEvent value)? getWalletEvent,
     TResult? Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
     TResult? Function(CreateWalletEvent value)? createWalletEvent,
-    TResult? Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusEvent value)? refferalBonusEvent,
   }) {
     return addStateEvent?.call(this);
   }
@@ -931,8 +853,6 @@ class _$AddStateEventImpl implements AddStateEvent {
     TResult Function(GetWalletEvent value)? getWalletEvent,
     TResult Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
     TResult Function(CreateWalletEvent value)? createWalletEvent,
-    TResult Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult Function(RefferalBonusEvent value)? refferalBonusEvent,
     required TResult orElse(),
   }) {
     if (addStateEvent != null) {
@@ -1027,9 +947,6 @@ class _$AddAddressEventImpl implements AddAddressEvent {
     required TResult Function() getWalletEvent,
     required TResult Function() getWalletHistoryEvent,
     required TResult Function() createWalletEvent,
-    required TResult Function() getRefferalBonusEvent,
-    required TResult Function(RefferalBonusQurrey refferalBonusQurrey)
-        refferalBonusEvent,
   }) {
     return addAddressEvent(addAddressModel);
   }
@@ -1051,9 +968,6 @@ class _$AddAddressEventImpl implements AddAddressEvent {
     TResult? Function()? getWalletEvent,
     TResult? Function()? getWalletHistoryEvent,
     TResult? Function()? createWalletEvent,
-    TResult? Function()? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
   }) {
     return addAddressEvent?.call(addAddressModel);
   }
@@ -1074,9 +988,6 @@ class _$AddAddressEventImpl implements AddAddressEvent {
     TResult Function()? getWalletEvent,
     TResult Function()? getWalletHistoryEvent,
     TResult Function()? createWalletEvent,
-    TResult Function()? getRefferalBonusEvent,
-    TResult Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
     required TResult orElse(),
   }) {
     if (addAddressEvent != null) {
@@ -1102,9 +1013,6 @@ class _$AddAddressEventImpl implements AddAddressEvent {
     required TResult Function(GetWalletHistoryEvent value)
         getWalletHistoryEvent,
     required TResult Function(CreateWalletEvent value) createWalletEvent,
-    required TResult Function(GetRefferalBonusEvent value)
-        getRefferalBonusEvent,
-    required TResult Function(RefferalBonusEvent value) refferalBonusEvent,
   }) {
     return addAddressEvent(this);
   }
@@ -1125,8 +1033,6 @@ class _$AddAddressEventImpl implements AddAddressEvent {
     TResult? Function(GetWalletEvent value)? getWalletEvent,
     TResult? Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
     TResult? Function(CreateWalletEvent value)? createWalletEvent,
-    TResult? Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusEvent value)? refferalBonusEvent,
   }) {
     return addAddressEvent?.call(this);
   }
@@ -1147,8 +1053,6 @@ class _$AddAddressEventImpl implements AddAddressEvent {
     TResult Function(GetWalletEvent value)? getWalletEvent,
     TResult Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
     TResult Function(CreateWalletEvent value)? createWalletEvent,
-    TResult Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult Function(RefferalBonusEvent value)? refferalBonusEvent,
     required TResult orElse(),
   }) {
     if (addAddressEvent != null) {
@@ -1258,9 +1162,6 @@ class _$SelectStateEventImpl implements SelectStateEvent {
     required TResult Function() getWalletEvent,
     required TResult Function() getWalletHistoryEvent,
     required TResult Function() createWalletEvent,
-    required TResult Function() getRefferalBonusEvent,
-    required TResult Function(RefferalBonusQurrey refferalBonusQurrey)
-        refferalBonusEvent,
   }) {
     return selectStateEvent(stateId, stateName);
   }
@@ -1282,9 +1183,6 @@ class _$SelectStateEventImpl implements SelectStateEvent {
     TResult? Function()? getWalletEvent,
     TResult? Function()? getWalletHistoryEvent,
     TResult? Function()? createWalletEvent,
-    TResult? Function()? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
   }) {
     return selectStateEvent?.call(stateId, stateName);
   }
@@ -1305,9 +1203,6 @@ class _$SelectStateEventImpl implements SelectStateEvent {
     TResult Function()? getWalletEvent,
     TResult Function()? getWalletHistoryEvent,
     TResult Function()? createWalletEvent,
-    TResult Function()? getRefferalBonusEvent,
-    TResult Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
     required TResult orElse(),
   }) {
     if (selectStateEvent != null) {
@@ -1333,9 +1228,6 @@ class _$SelectStateEventImpl implements SelectStateEvent {
     required TResult Function(GetWalletHistoryEvent value)
         getWalletHistoryEvent,
     required TResult Function(CreateWalletEvent value) createWalletEvent,
-    required TResult Function(GetRefferalBonusEvent value)
-        getRefferalBonusEvent,
-    required TResult Function(RefferalBonusEvent value) refferalBonusEvent,
   }) {
     return selectStateEvent(this);
   }
@@ -1356,8 +1248,6 @@ class _$SelectStateEventImpl implements SelectStateEvent {
     TResult? Function(GetWalletEvent value)? getWalletEvent,
     TResult? Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
     TResult? Function(CreateWalletEvent value)? createWalletEvent,
-    TResult? Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusEvent value)? refferalBonusEvent,
   }) {
     return selectStateEvent?.call(this);
   }
@@ -1378,8 +1268,6 @@ class _$SelectStateEventImpl implements SelectStateEvent {
     TResult Function(GetWalletEvent value)? getWalletEvent,
     TResult Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
     TResult Function(CreateWalletEvent value)? createWalletEvent,
-    TResult Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult Function(RefferalBonusEvent value)? refferalBonusEvent,
     required TResult orElse(),
   }) {
     if (selectStateEvent != null) {
@@ -1454,9 +1342,6 @@ class _$GetAddressEventImpl implements GetAddressEvent {
     required TResult Function() getWalletEvent,
     required TResult Function() getWalletHistoryEvent,
     required TResult Function() createWalletEvent,
-    required TResult Function() getRefferalBonusEvent,
-    required TResult Function(RefferalBonusQurrey refferalBonusQurrey)
-        refferalBonusEvent,
   }) {
     return getAddressEvent();
   }
@@ -1478,9 +1363,6 @@ class _$GetAddressEventImpl implements GetAddressEvent {
     TResult? Function()? getWalletEvent,
     TResult? Function()? getWalletHistoryEvent,
     TResult? Function()? createWalletEvent,
-    TResult? Function()? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
   }) {
     return getAddressEvent?.call();
   }
@@ -1501,9 +1383,6 @@ class _$GetAddressEventImpl implements GetAddressEvent {
     TResult Function()? getWalletEvent,
     TResult Function()? getWalletHistoryEvent,
     TResult Function()? createWalletEvent,
-    TResult Function()? getRefferalBonusEvent,
-    TResult Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
     required TResult orElse(),
   }) {
     if (getAddressEvent != null) {
@@ -1529,9 +1408,6 @@ class _$GetAddressEventImpl implements GetAddressEvent {
     required TResult Function(GetWalletHistoryEvent value)
         getWalletHistoryEvent,
     required TResult Function(CreateWalletEvent value) createWalletEvent,
-    required TResult Function(GetRefferalBonusEvent value)
-        getRefferalBonusEvent,
-    required TResult Function(RefferalBonusEvent value) refferalBonusEvent,
   }) {
     return getAddressEvent(this);
   }
@@ -1552,8 +1428,6 @@ class _$GetAddressEventImpl implements GetAddressEvent {
     TResult? Function(GetWalletEvent value)? getWalletEvent,
     TResult? Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
     TResult? Function(CreateWalletEvent value)? createWalletEvent,
-    TResult? Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusEvent value)? refferalBonusEvent,
   }) {
     return getAddressEvent?.call(this);
   }
@@ -1574,8 +1448,6 @@ class _$GetAddressEventImpl implements GetAddressEvent {
     TResult Function(GetWalletEvent value)? getWalletEvent,
     TResult Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
     TResult Function(CreateWalletEvent value)? createWalletEvent,
-    TResult Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult Function(RefferalBonusEvent value)? refferalBonusEvent,
     required TResult orElse(),
   }) {
     if (getAddressEvent != null) {
@@ -1670,9 +1542,6 @@ class _$DeleteAddressEventImpl implements DeleteAddressEvent {
     required TResult Function() getWalletEvent,
     required TResult Function() getWalletHistoryEvent,
     required TResult Function() createWalletEvent,
-    required TResult Function() getRefferalBonusEvent,
-    required TResult Function(RefferalBonusQurrey refferalBonusQurrey)
-        refferalBonusEvent,
   }) {
     return deleteAddressEvent(deleteAddressModel);
   }
@@ -1694,9 +1563,6 @@ class _$DeleteAddressEventImpl implements DeleteAddressEvent {
     TResult? Function()? getWalletEvent,
     TResult? Function()? getWalletHistoryEvent,
     TResult? Function()? createWalletEvent,
-    TResult? Function()? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
   }) {
     return deleteAddressEvent?.call(deleteAddressModel);
   }
@@ -1717,9 +1583,6 @@ class _$DeleteAddressEventImpl implements DeleteAddressEvent {
     TResult Function()? getWalletEvent,
     TResult Function()? getWalletHistoryEvent,
     TResult Function()? createWalletEvent,
-    TResult Function()? getRefferalBonusEvent,
-    TResult Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
     required TResult orElse(),
   }) {
     if (deleteAddressEvent != null) {
@@ -1745,9 +1608,6 @@ class _$DeleteAddressEventImpl implements DeleteAddressEvent {
     required TResult Function(GetWalletHistoryEvent value)
         getWalletHistoryEvent,
     required TResult Function(CreateWalletEvent value) createWalletEvent,
-    required TResult Function(GetRefferalBonusEvent value)
-        getRefferalBonusEvent,
-    required TResult Function(RefferalBonusEvent value) refferalBonusEvent,
   }) {
     return deleteAddressEvent(this);
   }
@@ -1768,8 +1628,6 @@ class _$DeleteAddressEventImpl implements DeleteAddressEvent {
     TResult? Function(GetWalletEvent value)? getWalletEvent,
     TResult? Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
     TResult? Function(CreateWalletEvent value)? createWalletEvent,
-    TResult? Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusEvent value)? refferalBonusEvent,
   }) {
     return deleteAddressEvent?.call(this);
   }
@@ -1790,8 +1648,6 @@ class _$DeleteAddressEventImpl implements DeleteAddressEvent {
     TResult Function(GetWalletEvent value)? getWalletEvent,
     TResult Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
     TResult Function(CreateWalletEvent value)? createWalletEvent,
-    TResult Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult Function(RefferalBonusEvent value)? refferalBonusEvent,
     required TResult orElse(),
   }) {
     if (deleteAddressEvent != null) {
@@ -1893,9 +1749,6 @@ class _$DefaultAddressEventImpl implements DefaultAddressEvent {
     required TResult Function() getWalletEvent,
     required TResult Function() getWalletHistoryEvent,
     required TResult Function() createWalletEvent,
-    required TResult Function() getRefferalBonusEvent,
-    required TResult Function(RefferalBonusQurrey refferalBonusQurrey)
-        refferalBonusEvent,
   }) {
     return defaultAddressEvent(getAddressModel);
   }
@@ -1917,9 +1770,6 @@ class _$DefaultAddressEventImpl implements DefaultAddressEvent {
     TResult? Function()? getWalletEvent,
     TResult? Function()? getWalletHistoryEvent,
     TResult? Function()? createWalletEvent,
-    TResult? Function()? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
   }) {
     return defaultAddressEvent?.call(getAddressModel);
   }
@@ -1940,9 +1790,6 @@ class _$DefaultAddressEventImpl implements DefaultAddressEvent {
     TResult Function()? getWalletEvent,
     TResult Function()? getWalletHistoryEvent,
     TResult Function()? createWalletEvent,
-    TResult Function()? getRefferalBonusEvent,
-    TResult Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
     required TResult orElse(),
   }) {
     if (defaultAddressEvent != null) {
@@ -1968,9 +1815,6 @@ class _$DefaultAddressEventImpl implements DefaultAddressEvent {
     required TResult Function(GetWalletHistoryEvent value)
         getWalletHistoryEvent,
     required TResult Function(CreateWalletEvent value) createWalletEvent,
-    required TResult Function(GetRefferalBonusEvent value)
-        getRefferalBonusEvent,
-    required TResult Function(RefferalBonusEvent value) refferalBonusEvent,
   }) {
     return defaultAddressEvent(this);
   }
@@ -1991,8 +1835,6 @@ class _$DefaultAddressEventImpl implements DefaultAddressEvent {
     TResult? Function(GetWalletEvent value)? getWalletEvent,
     TResult? Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
     TResult? Function(CreateWalletEvent value)? createWalletEvent,
-    TResult? Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusEvent value)? refferalBonusEvent,
   }) {
     return defaultAddressEvent?.call(this);
   }
@@ -2013,8 +1855,6 @@ class _$DefaultAddressEventImpl implements DefaultAddressEvent {
     TResult Function(GetWalletEvent value)? getWalletEvent,
     TResult Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
     TResult Function(CreateWalletEvent value)? createWalletEvent,
-    TResult Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult Function(RefferalBonusEvent value)? refferalBonusEvent,
     required TResult orElse(),
   }) {
     if (defaultAddressEvent != null) {
@@ -2088,9 +1928,6 @@ class _$ShowListEventImpl implements ShowListEvent {
     required TResult Function() getWalletEvent,
     required TResult Function() getWalletHistoryEvent,
     required TResult Function() createWalletEvent,
-    required TResult Function() getRefferalBonusEvent,
-    required TResult Function(RefferalBonusQurrey refferalBonusQurrey)
-        refferalBonusEvent,
   }) {
     return showList();
   }
@@ -2112,9 +1949,6 @@ class _$ShowListEventImpl implements ShowListEvent {
     TResult? Function()? getWalletEvent,
     TResult? Function()? getWalletHistoryEvent,
     TResult? Function()? createWalletEvent,
-    TResult? Function()? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
   }) {
     return showList?.call();
   }
@@ -2135,9 +1969,6 @@ class _$ShowListEventImpl implements ShowListEvent {
     TResult Function()? getWalletEvent,
     TResult Function()? getWalletHistoryEvent,
     TResult Function()? createWalletEvent,
-    TResult Function()? getRefferalBonusEvent,
-    TResult Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
     required TResult orElse(),
   }) {
     if (showList != null) {
@@ -2163,9 +1994,6 @@ class _$ShowListEventImpl implements ShowListEvent {
     required TResult Function(GetWalletHistoryEvent value)
         getWalletHistoryEvent,
     required TResult Function(CreateWalletEvent value) createWalletEvent,
-    required TResult Function(GetRefferalBonusEvent value)
-        getRefferalBonusEvent,
-    required TResult Function(RefferalBonusEvent value) refferalBonusEvent,
   }) {
     return showList(this);
   }
@@ -2186,8 +2014,6 @@ class _$ShowListEventImpl implements ShowListEvent {
     TResult? Function(GetWalletEvent value)? getWalletEvent,
     TResult? Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
     TResult? Function(CreateWalletEvent value)? createWalletEvent,
-    TResult? Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusEvent value)? refferalBonusEvent,
   }) {
     return showList?.call(this);
   }
@@ -2208,8 +2034,6 @@ class _$ShowListEventImpl implements ShowListEvent {
     TResult Function(GetWalletEvent value)? getWalletEvent,
     TResult Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
     TResult Function(CreateWalletEvent value)? createWalletEvent,
-    TResult Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult Function(RefferalBonusEvent value)? refferalBonusEvent,
     required TResult orElse(),
   }) {
     if (showList != null) {
@@ -2276,9 +2100,6 @@ class _$GetWalletEventImpl implements GetWalletEvent {
     required TResult Function() getWalletEvent,
     required TResult Function() getWalletHistoryEvent,
     required TResult Function() createWalletEvent,
-    required TResult Function() getRefferalBonusEvent,
-    required TResult Function(RefferalBonusQurrey refferalBonusQurrey)
-        refferalBonusEvent,
   }) {
     return getWalletEvent();
   }
@@ -2300,9 +2121,6 @@ class _$GetWalletEventImpl implements GetWalletEvent {
     TResult? Function()? getWalletEvent,
     TResult? Function()? getWalletHistoryEvent,
     TResult? Function()? createWalletEvent,
-    TResult? Function()? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
   }) {
     return getWalletEvent?.call();
   }
@@ -2323,9 +2141,6 @@ class _$GetWalletEventImpl implements GetWalletEvent {
     TResult Function()? getWalletEvent,
     TResult Function()? getWalletHistoryEvent,
     TResult Function()? createWalletEvent,
-    TResult Function()? getRefferalBonusEvent,
-    TResult Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
     required TResult orElse(),
   }) {
     if (getWalletEvent != null) {
@@ -2351,9 +2166,6 @@ class _$GetWalletEventImpl implements GetWalletEvent {
     required TResult Function(GetWalletHistoryEvent value)
         getWalletHistoryEvent,
     required TResult Function(CreateWalletEvent value) createWalletEvent,
-    required TResult Function(GetRefferalBonusEvent value)
-        getRefferalBonusEvent,
-    required TResult Function(RefferalBonusEvent value) refferalBonusEvent,
   }) {
     return getWalletEvent(this);
   }
@@ -2374,8 +2186,6 @@ class _$GetWalletEventImpl implements GetWalletEvent {
     TResult? Function(GetWalletEvent value)? getWalletEvent,
     TResult? Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
     TResult? Function(CreateWalletEvent value)? createWalletEvent,
-    TResult? Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusEvent value)? refferalBonusEvent,
   }) {
     return getWalletEvent?.call(this);
   }
@@ -2396,8 +2206,6 @@ class _$GetWalletEventImpl implements GetWalletEvent {
     TResult Function(GetWalletEvent value)? getWalletEvent,
     TResult Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
     TResult Function(CreateWalletEvent value)? createWalletEvent,
-    TResult Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult Function(RefferalBonusEvent value)? refferalBonusEvent,
     required TResult orElse(),
   }) {
     if (getWalletEvent != null) {
@@ -2466,9 +2274,6 @@ class _$GetWalletHistoryEventImpl implements GetWalletHistoryEvent {
     required TResult Function() getWalletEvent,
     required TResult Function() getWalletHistoryEvent,
     required TResult Function() createWalletEvent,
-    required TResult Function() getRefferalBonusEvent,
-    required TResult Function(RefferalBonusQurrey refferalBonusQurrey)
-        refferalBonusEvent,
   }) {
     return getWalletHistoryEvent();
   }
@@ -2490,9 +2295,6 @@ class _$GetWalletHistoryEventImpl implements GetWalletHistoryEvent {
     TResult? Function()? getWalletEvent,
     TResult? Function()? getWalletHistoryEvent,
     TResult? Function()? createWalletEvent,
-    TResult? Function()? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
   }) {
     return getWalletHistoryEvent?.call();
   }
@@ -2513,9 +2315,6 @@ class _$GetWalletHistoryEventImpl implements GetWalletHistoryEvent {
     TResult Function()? getWalletEvent,
     TResult Function()? getWalletHistoryEvent,
     TResult Function()? createWalletEvent,
-    TResult Function()? getRefferalBonusEvent,
-    TResult Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
     required TResult orElse(),
   }) {
     if (getWalletHistoryEvent != null) {
@@ -2541,9 +2340,6 @@ class _$GetWalletHistoryEventImpl implements GetWalletHistoryEvent {
     required TResult Function(GetWalletHistoryEvent value)
         getWalletHistoryEvent,
     required TResult Function(CreateWalletEvent value) createWalletEvent,
-    required TResult Function(GetRefferalBonusEvent value)
-        getRefferalBonusEvent,
-    required TResult Function(RefferalBonusEvent value) refferalBonusEvent,
   }) {
     return getWalletHistoryEvent(this);
   }
@@ -2564,8 +2360,6 @@ class _$GetWalletHistoryEventImpl implements GetWalletHistoryEvent {
     TResult? Function(GetWalletEvent value)? getWalletEvent,
     TResult? Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
     TResult? Function(CreateWalletEvent value)? createWalletEvent,
-    TResult? Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusEvent value)? refferalBonusEvent,
   }) {
     return getWalletHistoryEvent?.call(this);
   }
@@ -2586,8 +2380,6 @@ class _$GetWalletHistoryEventImpl implements GetWalletHistoryEvent {
     TResult Function(GetWalletEvent value)? getWalletEvent,
     TResult Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
     TResult Function(CreateWalletEvent value)? createWalletEvent,
-    TResult Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult Function(RefferalBonusEvent value)? refferalBonusEvent,
     required TResult orElse(),
   }) {
     if (getWalletHistoryEvent != null) {
@@ -2654,9 +2446,6 @@ class _$CreateWalletEventImpl implements CreateWalletEvent {
     required TResult Function() getWalletEvent,
     required TResult Function() getWalletHistoryEvent,
     required TResult Function() createWalletEvent,
-    required TResult Function() getRefferalBonusEvent,
-    required TResult Function(RefferalBonusQurrey refferalBonusQurrey)
-        refferalBonusEvent,
   }) {
     return createWalletEvent();
   }
@@ -2678,9 +2467,6 @@ class _$CreateWalletEventImpl implements CreateWalletEvent {
     TResult? Function()? getWalletEvent,
     TResult? Function()? getWalletHistoryEvent,
     TResult? Function()? createWalletEvent,
-    TResult? Function()? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
   }) {
     return createWalletEvent?.call();
   }
@@ -2701,9 +2487,6 @@ class _$CreateWalletEventImpl implements CreateWalletEvent {
     TResult Function()? getWalletEvent,
     TResult Function()? getWalletHistoryEvent,
     TResult Function()? createWalletEvent,
-    TResult Function()? getRefferalBonusEvent,
-    TResult Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
     required TResult orElse(),
   }) {
     if (createWalletEvent != null) {
@@ -2729,9 +2512,6 @@ class _$CreateWalletEventImpl implements CreateWalletEvent {
     required TResult Function(GetWalletHistoryEvent value)
         getWalletHistoryEvent,
     required TResult Function(CreateWalletEvent value) createWalletEvent,
-    required TResult Function(GetRefferalBonusEvent value)
-        getRefferalBonusEvent,
-    required TResult Function(RefferalBonusEvent value) refferalBonusEvent,
   }) {
     return createWalletEvent(this);
   }
@@ -2752,8 +2532,6 @@ class _$CreateWalletEventImpl implements CreateWalletEvent {
     TResult? Function(GetWalletEvent value)? getWalletEvent,
     TResult? Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
     TResult? Function(CreateWalletEvent value)? createWalletEvent,
-    TResult? Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusEvent value)? refferalBonusEvent,
   }) {
     return createWalletEvent?.call(this);
   }
@@ -2774,8 +2552,6 @@ class _$CreateWalletEventImpl implements CreateWalletEvent {
     TResult Function(GetWalletEvent value)? getWalletEvent,
     TResult Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
     TResult Function(CreateWalletEvent value)? createWalletEvent,
-    TResult Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult Function(RefferalBonusEvent value)? refferalBonusEvent,
     required TResult orElse(),
   }) {
     if (createWalletEvent != null) {
@@ -2787,419 +2563,6 @@ class _$CreateWalletEventImpl implements CreateWalletEvent {
 
 abstract class CreateWalletEvent implements ProfileEvent {
   const factory CreateWalletEvent() = _$CreateWalletEventImpl;
-}
-
-/// @nodoc
-abstract class _$$GetRefferalBonusEventImplCopyWith<$Res> {
-  factory _$$GetRefferalBonusEventImplCopyWith(
-          _$GetRefferalBonusEventImpl value,
-          $Res Function(_$GetRefferalBonusEventImpl) then) =
-      __$$GetRefferalBonusEventImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$GetRefferalBonusEventImplCopyWithImpl<$Res>
-    extends _$ProfileEventCopyWithImpl<$Res, _$GetRefferalBonusEventImpl>
-    implements _$$GetRefferalBonusEventImplCopyWith<$Res> {
-  __$$GetRefferalBonusEventImplCopyWithImpl(_$GetRefferalBonusEventImpl _value,
-      $Res Function(_$GetRefferalBonusEventImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$GetRefferalBonusEventImpl implements GetRefferalBonusEvent {
-  const _$GetRefferalBonusEventImpl();
-
-  @override
-  String toString() {
-    return 'ProfileEvent.getRefferalBonusEvent()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetRefferalBonusEventImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() getProfileEvent,
-    required TResult Function(EditUserNameModel user) editUserNameEvent,
-    required TResult Function() verifyPasswordEvent,
-    required TResult Function() addStateEvent,
-    required TResult Function(AddAddressModel addAddressModel) addAddressEvent,
-    required TResult Function(int stateId, String stateName) selectStateEvent,
-    required TResult Function() getAddressEvent,
-    required TResult Function(DeleteAddressModel deleteAddressModel)
-        deleteAddressEvent,
-    required TResult Function(GetAddressModel getAddressModel)
-        defaultAddressEvent,
-    required TResult Function() showList,
-    required TResult Function() getWalletEvent,
-    required TResult Function() getWalletHistoryEvent,
-    required TResult Function() createWalletEvent,
-    required TResult Function() getRefferalBonusEvent,
-    required TResult Function(RefferalBonusQurrey refferalBonusQurrey)
-        refferalBonusEvent,
-  }) {
-    return getRefferalBonusEvent();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getProfileEvent,
-    TResult? Function(EditUserNameModel user)? editUserNameEvent,
-    TResult? Function()? verifyPasswordEvent,
-    TResult? Function()? addStateEvent,
-    TResult? Function(AddAddressModel addAddressModel)? addAddressEvent,
-    TResult? Function(int stateId, String stateName)? selectStateEvent,
-    TResult? Function()? getAddressEvent,
-    TResult? Function(DeleteAddressModel deleteAddressModel)?
-        deleteAddressEvent,
-    TResult? Function(GetAddressModel getAddressModel)? defaultAddressEvent,
-    TResult? Function()? showList,
-    TResult? Function()? getWalletEvent,
-    TResult? Function()? getWalletHistoryEvent,
-    TResult? Function()? createWalletEvent,
-    TResult? Function()? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
-  }) {
-    return getRefferalBonusEvent?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getProfileEvent,
-    TResult Function(EditUserNameModel user)? editUserNameEvent,
-    TResult Function()? verifyPasswordEvent,
-    TResult Function()? addStateEvent,
-    TResult Function(AddAddressModel addAddressModel)? addAddressEvent,
-    TResult Function(int stateId, String stateName)? selectStateEvent,
-    TResult Function()? getAddressEvent,
-    TResult Function(DeleteAddressModel deleteAddressModel)? deleteAddressEvent,
-    TResult Function(GetAddressModel getAddressModel)? defaultAddressEvent,
-    TResult Function()? showList,
-    TResult Function()? getWalletEvent,
-    TResult Function()? getWalletHistoryEvent,
-    TResult Function()? createWalletEvent,
-    TResult Function()? getRefferalBonusEvent,
-    TResult Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
-    required TResult orElse(),
-  }) {
-    if (getRefferalBonusEvent != null) {
-      return getRefferalBonusEvent();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_GetProfileEvent value) getProfileEvent,
-    required TResult Function(_EditUserNameEvent value) editUserNameEvent,
-    required TResult Function(VerifyPasswordEvent value) verifyPasswordEvent,
-    required TResult Function(AddStateEvent value) addStateEvent,
-    required TResult Function(AddAddressEvent value) addAddressEvent,
-    required TResult Function(SelectStateEvent value) selectStateEvent,
-    required TResult Function(GetAddressEvent value) getAddressEvent,
-    required TResult Function(DeleteAddressEvent value) deleteAddressEvent,
-    required TResult Function(DefaultAddressEvent value) defaultAddressEvent,
-    required TResult Function(ShowListEvent value) showList,
-    required TResult Function(GetWalletEvent value) getWalletEvent,
-    required TResult Function(GetWalletHistoryEvent value)
-        getWalletHistoryEvent,
-    required TResult Function(CreateWalletEvent value) createWalletEvent,
-    required TResult Function(GetRefferalBonusEvent value)
-        getRefferalBonusEvent,
-    required TResult Function(RefferalBonusEvent value) refferalBonusEvent,
-  }) {
-    return getRefferalBonusEvent(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetProfileEvent value)? getProfileEvent,
-    TResult? Function(_EditUserNameEvent value)? editUserNameEvent,
-    TResult? Function(VerifyPasswordEvent value)? verifyPasswordEvent,
-    TResult? Function(AddStateEvent value)? addStateEvent,
-    TResult? Function(AddAddressEvent value)? addAddressEvent,
-    TResult? Function(SelectStateEvent value)? selectStateEvent,
-    TResult? Function(GetAddressEvent value)? getAddressEvent,
-    TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
-    TResult? Function(DefaultAddressEvent value)? defaultAddressEvent,
-    TResult? Function(ShowListEvent value)? showList,
-    TResult? Function(GetWalletEvent value)? getWalletEvent,
-    TResult? Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
-    TResult? Function(CreateWalletEvent value)? createWalletEvent,
-    TResult? Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusEvent value)? refferalBonusEvent,
-  }) {
-    return getRefferalBonusEvent?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetProfileEvent value)? getProfileEvent,
-    TResult Function(_EditUserNameEvent value)? editUserNameEvent,
-    TResult Function(VerifyPasswordEvent value)? verifyPasswordEvent,
-    TResult Function(AddStateEvent value)? addStateEvent,
-    TResult Function(AddAddressEvent value)? addAddressEvent,
-    TResult Function(SelectStateEvent value)? selectStateEvent,
-    TResult Function(GetAddressEvent value)? getAddressEvent,
-    TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
-    TResult Function(DefaultAddressEvent value)? defaultAddressEvent,
-    TResult Function(ShowListEvent value)? showList,
-    TResult Function(GetWalletEvent value)? getWalletEvent,
-    TResult Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
-    TResult Function(CreateWalletEvent value)? createWalletEvent,
-    TResult Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult Function(RefferalBonusEvent value)? refferalBonusEvent,
-    required TResult orElse(),
-  }) {
-    if (getRefferalBonusEvent != null) {
-      return getRefferalBonusEvent(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetRefferalBonusEvent implements ProfileEvent {
-  const factory GetRefferalBonusEvent() = _$GetRefferalBonusEventImpl;
-}
-
-/// @nodoc
-abstract class _$$RefferalBonusEventImplCopyWith<$Res> {
-  factory _$$RefferalBonusEventImplCopyWith(_$RefferalBonusEventImpl value,
-          $Res Function(_$RefferalBonusEventImpl) then) =
-      __$$RefferalBonusEventImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({RefferalBonusQurrey refferalBonusQurrey});
-}
-
-/// @nodoc
-class __$$RefferalBonusEventImplCopyWithImpl<$Res>
-    extends _$ProfileEventCopyWithImpl<$Res, _$RefferalBonusEventImpl>
-    implements _$$RefferalBonusEventImplCopyWith<$Res> {
-  __$$RefferalBonusEventImplCopyWithImpl(_$RefferalBonusEventImpl _value,
-      $Res Function(_$RefferalBonusEventImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? refferalBonusQurrey = null,
-  }) {
-    return _then(_$RefferalBonusEventImpl(
-      refferalBonusQurrey: null == refferalBonusQurrey
-          ? _value.refferalBonusQurrey
-          : refferalBonusQurrey // ignore: cast_nullable_to_non_nullable
-              as RefferalBonusQurrey,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$RefferalBonusEventImpl implements RefferalBonusEvent {
-  const _$RefferalBonusEventImpl({required this.refferalBonusQurrey});
-
-  @override
-  final RefferalBonusQurrey refferalBonusQurrey;
-
-  @override
-  String toString() {
-    return 'ProfileEvent.refferalBonusEvent(refferalBonusQurrey: $refferalBonusQurrey)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$RefferalBonusEventImpl &&
-            (identical(other.refferalBonusQurrey, refferalBonusQurrey) ||
-                other.refferalBonusQurrey == refferalBonusQurrey));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, refferalBonusQurrey);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$RefferalBonusEventImplCopyWith<_$RefferalBonusEventImpl> get copyWith =>
-      __$$RefferalBonusEventImplCopyWithImpl<_$RefferalBonusEventImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() getProfileEvent,
-    required TResult Function(EditUserNameModel user) editUserNameEvent,
-    required TResult Function() verifyPasswordEvent,
-    required TResult Function() addStateEvent,
-    required TResult Function(AddAddressModel addAddressModel) addAddressEvent,
-    required TResult Function(int stateId, String stateName) selectStateEvent,
-    required TResult Function() getAddressEvent,
-    required TResult Function(DeleteAddressModel deleteAddressModel)
-        deleteAddressEvent,
-    required TResult Function(GetAddressModel getAddressModel)
-        defaultAddressEvent,
-    required TResult Function() showList,
-    required TResult Function() getWalletEvent,
-    required TResult Function() getWalletHistoryEvent,
-    required TResult Function() createWalletEvent,
-    required TResult Function() getRefferalBonusEvent,
-    required TResult Function(RefferalBonusQurrey refferalBonusQurrey)
-        refferalBonusEvent,
-  }) {
-    return refferalBonusEvent(refferalBonusQurrey);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getProfileEvent,
-    TResult? Function(EditUserNameModel user)? editUserNameEvent,
-    TResult? Function()? verifyPasswordEvent,
-    TResult? Function()? addStateEvent,
-    TResult? Function(AddAddressModel addAddressModel)? addAddressEvent,
-    TResult? Function(int stateId, String stateName)? selectStateEvent,
-    TResult? Function()? getAddressEvent,
-    TResult? Function(DeleteAddressModel deleteAddressModel)?
-        deleteAddressEvent,
-    TResult? Function(GetAddressModel getAddressModel)? defaultAddressEvent,
-    TResult? Function()? showList,
-    TResult? Function()? getWalletEvent,
-    TResult? Function()? getWalletHistoryEvent,
-    TResult? Function()? createWalletEvent,
-    TResult? Function()? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
-  }) {
-    return refferalBonusEvent?.call(refferalBonusQurrey);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getProfileEvent,
-    TResult Function(EditUserNameModel user)? editUserNameEvent,
-    TResult Function()? verifyPasswordEvent,
-    TResult Function()? addStateEvent,
-    TResult Function(AddAddressModel addAddressModel)? addAddressEvent,
-    TResult Function(int stateId, String stateName)? selectStateEvent,
-    TResult Function()? getAddressEvent,
-    TResult Function(DeleteAddressModel deleteAddressModel)? deleteAddressEvent,
-    TResult Function(GetAddressModel getAddressModel)? defaultAddressEvent,
-    TResult Function()? showList,
-    TResult Function()? getWalletEvent,
-    TResult Function()? getWalletHistoryEvent,
-    TResult Function()? createWalletEvent,
-    TResult Function()? getRefferalBonusEvent,
-    TResult Function(RefferalBonusQurrey refferalBonusQurrey)?
-        refferalBonusEvent,
-    required TResult orElse(),
-  }) {
-    if (refferalBonusEvent != null) {
-      return refferalBonusEvent(refferalBonusQurrey);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_GetProfileEvent value) getProfileEvent,
-    required TResult Function(_EditUserNameEvent value) editUserNameEvent,
-    required TResult Function(VerifyPasswordEvent value) verifyPasswordEvent,
-    required TResult Function(AddStateEvent value) addStateEvent,
-    required TResult Function(AddAddressEvent value) addAddressEvent,
-    required TResult Function(SelectStateEvent value) selectStateEvent,
-    required TResult Function(GetAddressEvent value) getAddressEvent,
-    required TResult Function(DeleteAddressEvent value) deleteAddressEvent,
-    required TResult Function(DefaultAddressEvent value) defaultAddressEvent,
-    required TResult Function(ShowListEvent value) showList,
-    required TResult Function(GetWalletEvent value) getWalletEvent,
-    required TResult Function(GetWalletHistoryEvent value)
-        getWalletHistoryEvent,
-    required TResult Function(CreateWalletEvent value) createWalletEvent,
-    required TResult Function(GetRefferalBonusEvent value)
-        getRefferalBonusEvent,
-    required TResult Function(RefferalBonusEvent value) refferalBonusEvent,
-  }) {
-    return refferalBonusEvent(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetProfileEvent value)? getProfileEvent,
-    TResult? Function(_EditUserNameEvent value)? editUserNameEvent,
-    TResult? Function(VerifyPasswordEvent value)? verifyPasswordEvent,
-    TResult? Function(AddStateEvent value)? addStateEvent,
-    TResult? Function(AddAddressEvent value)? addAddressEvent,
-    TResult? Function(SelectStateEvent value)? selectStateEvent,
-    TResult? Function(GetAddressEvent value)? getAddressEvent,
-    TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
-    TResult? Function(DefaultAddressEvent value)? defaultAddressEvent,
-    TResult? Function(ShowListEvent value)? showList,
-    TResult? Function(GetWalletEvent value)? getWalletEvent,
-    TResult? Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
-    TResult? Function(CreateWalletEvent value)? createWalletEvent,
-    TResult? Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult? Function(RefferalBonusEvent value)? refferalBonusEvent,
-  }) {
-    return refferalBonusEvent?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetProfileEvent value)? getProfileEvent,
-    TResult Function(_EditUserNameEvent value)? editUserNameEvent,
-    TResult Function(VerifyPasswordEvent value)? verifyPasswordEvent,
-    TResult Function(AddStateEvent value)? addStateEvent,
-    TResult Function(AddAddressEvent value)? addAddressEvent,
-    TResult Function(SelectStateEvent value)? selectStateEvent,
-    TResult Function(GetAddressEvent value)? getAddressEvent,
-    TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
-    TResult Function(DefaultAddressEvent value)? defaultAddressEvent,
-    TResult Function(ShowListEvent value)? showList,
-    TResult Function(GetWalletEvent value)? getWalletEvent,
-    TResult Function(GetWalletHistoryEvent value)? getWalletHistoryEvent,
-    TResult Function(CreateWalletEvent value)? createWalletEvent,
-    TResult Function(GetRefferalBonusEvent value)? getRefferalBonusEvent,
-    TResult Function(RefferalBonusEvent value)? refferalBonusEvent,
-    required TResult orElse(),
-  }) {
-    if (refferalBonusEvent != null) {
-      return refferalBonusEvent(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class RefferalBonusEvent implements ProfileEvent {
-  const factory RefferalBonusEvent(
-          {required final RefferalBonusQurrey refferalBonusQurrey}) =
-      _$RefferalBonusEventImpl;
-
-  RefferalBonusQurrey get refferalBonusQurrey;
-  @JsonKey(ignore: true)
-  _$$RefferalBonusEventImplCopyWith<_$RefferalBonusEventImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

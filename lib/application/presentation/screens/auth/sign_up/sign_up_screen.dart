@@ -68,20 +68,24 @@ class SignUpScreen extends StatelessWidget {
                                   controller: signupBloc.emailController,
                                   prefixIcon: Iconsax.sms,
                                 ),
-                                CustomTextFormField(
-                                  keyboardType: TextInputType.visiblePassword,
-                                  hintText: 'Password',
-                                  controller: signupBloc.passwordController,
-                                  prefixIcon: Iconsax.lock,
-                                  isPassword: true,
+                                Material(
+                                  child: CustomTextFormField(
+                                    keyboardType: TextInputType.visiblePassword,
+                                    hintText: 'Password',
+                                    controller: signupBloc.passwordController,
+                                    prefixIcon: Iconsax.lock,
+                                    isPassword: true,
+                                  ),
                                 ),
-                                CustomTextFormField(
-                                  hintText: 'Conform Password',
-                                  controller:
-                                      signupBloc.conformPasswordController,
-                                  keyboardType: TextInputType.visiblePassword,
-                                  isPassword: true,
-                                  prefixIcon: Iconsax.lock,
+                                Material(
+                                  child: CustomTextFormField(
+                                    hintText: 'Conform Password',
+                                    controller:
+                                        signupBloc.conformPasswordController,
+                                    keyboardType: TextInputType.visiblePassword,
+                                    isPassword: true,
+                                    prefixIcon: Iconsax.lock,
+                                  ),
                                 ),
                                 BlocConsumer<AuthBloc, AuthState>(
                                   listener: (context, state) {

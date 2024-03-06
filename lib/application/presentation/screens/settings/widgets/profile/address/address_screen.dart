@@ -25,7 +25,7 @@ class AddAddressScreen extends StatelessWidget {
     });
 
     return Scaffold(
-      appBar: PreferredSize(
+      appBar: const PreferredSize(
           preferredSize: Size.fromHeight(56),
           child: CustomAppBar(title: 'User Address')),
       body: BlocConsumer<ProfileBloc, ProfileState>(
@@ -81,7 +81,7 @@ class AddAddressScreen extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        AddStateWidget(),
+                        const AddStateWidget(),
                         ElevatedButton(
                             style: elevatedButtonStyle,
                             onPressed: () {
@@ -106,14 +106,14 @@ class AddAddressScreen extends StatelessWidget {
                                             .pincodecontroller.text)));
                               }
                             },
-                            child: Text(
+                            child: const Text(
                               'Save',
                               style: TextStyle(color: kWhite),
                             )),
-                        Divider(
+                        const Divider(
                           color: kBlack,
                         ),
-                        GetAddressWidget()
+                        const GetAddressWidget()
                       ],
                     )
                   ],

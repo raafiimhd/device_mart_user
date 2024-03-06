@@ -1,7 +1,6 @@
 import 'package:device/application/bussiness_logic/bloc/cart/cart_bloc.dart';
 import 'package:device/domain/core/color/colors.dart';
 import 'package:device/domain/core/constants/const.dart';
-import 'package:device/domain/models/cart_and_coupon/coupon/apply_coupon/apply_coupon.dart';
 import 'package:device/domain/models/cart_and_coupon/coupon/get_coupon_model/get_coupon_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

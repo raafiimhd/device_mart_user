@@ -1,11 +1,9 @@
-import 'package:device/application/presentation/screens/home/screen_home.dart';
 import 'package:device/application/presentation/screens/main_page/main_page.dart';
-import 'package:device/domain/core/constants/const.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 class AnimationScreen extends StatelessWidget {
-  AnimationScreen({Key? key, required this.id});
+  AnimationScreen({super.key,  required this.id});
   int id;
   @override
   Widget build(BuildContext context) {

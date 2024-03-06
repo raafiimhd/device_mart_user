@@ -3,6 +3,7 @@ import 'package:device/application/presentation/screens/settings/widgets/profile
 import 'package:device/application/presentation/screens/settings/widgets/user_wallet/user_wallet.dart';
 import 'package:device/application/presentation/widgets/custom/custom_appbar/custom_appbar.dart';
 import 'package:device/domain/core/color/colors.dart';
+import 'package:device/domain/core/constants/const.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:share_plus/share_plus.dart';
@@ -34,8 +35,8 @@ class ScreenSettings extends StatelessWidget {
         child: Column(
           children: [
             const ProfileDetailsWidget(),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
               child: Divider(
                 color: kBlack,
               ),
@@ -48,7 +49,7 @@ class ScreenSettings extends StatelessWidget {
               ),
               trailing: const Icon(Icons.arrow_forward_ios_outlined),
               onTap: () => Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => AddAddressScreen())),
+                  MaterialPageRoute(builder: (context) => const AddAddressScreen())),
             ),
             ListTile(
               leading: const Icon(Icons.wallet),
@@ -58,7 +59,7 @@ class ScreenSettings extends StatelessWidget {
               ),
               trailing: const Icon(Icons.arrow_forward_ios_outlined),
               onTap: () => Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => ScreenWallet())),
+                  MaterialPageRoute(builder: (context) => const ScreenWallet())),
             ),
             ListTile(
               leading: const Icon(Icons.policy_outlined),
@@ -110,7 +111,7 @@ class ScreenSettings extends StatelessWidget {
                       const Icon(Icons.arrow_forward_ios_outlined, color: kRed),
                   onTap: () => logoutDialoge(context)),
             ),
-            SizedBox(height: size.width * 0.8),
+            kHeight147,
             const Text(
               'Version 1.0',
               style: TextStyle(color: Color.fromARGB(255, 162, 159, 159)),

@@ -16,9 +16,12 @@ class MyOrderBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<OrderBloc>().add(OrderEvent.getOrderEvent(
-          getOrderQurreyModel: GetOrderQurreyModel(page: 1, count: 30)));
+     WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<OrderBloc>().add(
+        OrderEvent.getOrderEvent(
+          getOrderQurreyModel: GetOrderQurreyModel(page: 1, count: 30),
+        ),
+      );
     });
     return SafeArea(
       child: Padding(

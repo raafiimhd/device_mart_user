@@ -29,8 +29,8 @@ const kHeightTwenty = SizedBox(
 const kHeight50 = SizedBox(
   height: 50,
 );
-const kHeight20 = SizedBox(
-  height: 20,
+const kHeight147 = SizedBox(
+  height: 147,
 );
 const kWidth20 = SizedBox(
   width: 20,

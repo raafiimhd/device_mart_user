@@ -5,6 +5,7 @@ import 'package:device/domain/core/color/colors.dart';
 import 'package:device/domain/core/constants/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:collection/collection.dart';
 
 class BottomCheckOutSession extends StatelessWidget {
   const BottomCheckOutSession({
@@ -73,20 +74,24 @@ class BottomCheckOutSession extends StatelessWidget {
                                   const Spacer(),
                                   InkWell(
                                       onTap: () {
+                                        
                                         Navigator.pushNamed(
                                             context, Routes.couponScreen);
                                       },
                                       child: Text(
                                         context.read<CartBloc>().usedCouponId !=
                                                 0
-                                            ? state.coupon!
-                                                .firstWhere((element) =>
-                                                    element.id! ==
-                                                    context
-                                                        .read<CartBloc>()
-                                                        .usedCouponId)
-                                                .code!
-                                                
+                                            ? state
+                                                    .coupon!
+                                                    .firstWhereOrNull(
+                                                        (element) =>
+                                                            element.id! ==
+                                                            context
+                                                                .read<
+                                                                    CartBloc>()
+                                                                .usedCouponId)
+                                                    ?.code ??
+                                                'Apply coupon'
                                             : 'Apply coupon',
                                         style: const TextStyle(color: kBlue),
                                       ))

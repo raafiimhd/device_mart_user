@@ -45,4 +45,5 @@ class ApiEndPoint {
   static String refferalBonusEndPoint = '/referral/claim';
   static String getRefferalBonusEndPoint = '/referral/get-code';
   static String applyCouponEndPoint = '/coupon/apply';
+  static String deleteCouponEndPoint = '/coupon/remove/{couponID}';
 }

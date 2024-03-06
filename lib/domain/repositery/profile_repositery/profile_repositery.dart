@@ -15,8 +15,6 @@ import 'package:device/domain/models/profile/edit/verify_password_model/verify_p
 import 'package:device/domain/models/profile/edit/verify_password_model/verify_password_resp_model.dart';
 import 'package:device/domain/models/profile/get_profile/profile.dart';
 import 'package:device/domain/models/profile/get_refferal_bonus/get_refferal_bonus.dart';
-import 'package:device/domain/models/profile/refferal_bonus_qurrey/rafferal_resp.dart';
-import 'package:device/domain/models/profile/refferal_bonus_qurrey/refferal_bonus_qurrey.dart';
 import 'package:device/domain/models/profile/wallet_history/wallet_history.dart';
 import 'package:device/domain/models/profile/wallet_model/wallet_model.dart';
 import 'package:device/domain/models/profile/wallet_resp_model/wallet_rep_model.dart';
@@ -42,6 +40,4 @@ abstract class ProfileRepositery {
   Future<Either<ErrorMsg, WalletHistory>> getWalletHistory();
   Future<Either<ErrorMsg, WalletRespModel>> createWallet();
   Future<Either<ErrorMsg, GetRefferalBonus>> getRefferalBonus();
-  Future<Either<ErrorMsg, RefferalResp>> refferalBonus(
-      {required RefferalBonusQurrey refferalBonusQurrey});
 }

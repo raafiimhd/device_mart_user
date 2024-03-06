@@ -12,7 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class OrderDetailItemTile extends StatelessWidget {
-  OrderDetailItemTile({
+  const OrderDetailItemTile({
     Key? key,
     required this.data,
   }) : super(key: key);
@@ -54,7 +54,7 @@ class OrderDetailItemTile extends StatelessWidget {
           ),
           subtitle: Text(
             '₹ ${data.productPrice}',
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.w400,
               fontSize: 18,
             ),
@@ -69,7 +69,7 @@ class OrderDetailItemTile extends StatelessWidget {
                 context.read<OrderBloc>().id!,
               );
             },
-            child: Text('Submit Review'),
+            child: const Text('Submit Review'),
           ),
         );
       },
@@ -80,7 +80,7 @@ class OrderDetailItemTile extends StatelessWidget {
     showDialog(
         context: context,
         builder: (_) => AlertDialog(
-              title: Text('Add Reviews'),
+              title: const Text('Add Reviews'),
               content: Form(
                 key: bloc.ratingFormKey,
                 child: Center(
@@ -93,14 +93,14 @@ class OrderDetailItemTile extends StatelessWidget {
                         keyboardType: TextInputType.text,
                       ),
                       kHeightFive,
-                      Text(
+                      const Text(
                         'Enter Your Rating 1 to 9',
                         style: headStyle,
                       ),
                       Stack(
                         alignment: Alignment.center,
                         children: [
-                          OTPNumberTIle(),
+                          const OTPNumberTIle(),
                           TextFormField(
                             controller: bloc.ratingController,
                             maxLength: 1,
@@ -128,7 +128,7 @@ class OrderDetailItemTile extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: Text('Cancel'),
+                  child: const Text('Cancel'),
                 ),
                 TextButton(
                   onPressed: () {
@@ -152,7 +152,7 @@ class OrderDetailItemTile extends StatelessWidget {
                       }
                     }
                   },
-                  child: Text('Add'),
+                  child: const Text('Add'),
                 ),
               ],
             ));

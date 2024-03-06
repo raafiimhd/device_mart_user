@@ -9,7 +9,7 @@ part of 'data.dart';
 Data _$DataFromJson(Map<String, dynamic> json) => Data(
       id: json['id'] as int?,
       userId: json['user_id'] as int?,
-      amount: json['amount'] as int?,
+      amount: (json['amount'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{

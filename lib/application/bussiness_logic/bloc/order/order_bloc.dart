@@ -27,14 +27,14 @@ part 'order_bloc.freezed.dart';
 class OrderBloc extends Bloc<OrderEvent, OrderState> {
   final OrderRepository orderRepository;
   final OrderProvider orderProvider =
-      OrderProvider(Dio(), FlutterSecureStorage());
+      OrderProvider(Dio(), const FlutterSecureStorage());
   final TextEditingController descriptionController = TextEditingController();
   final GlobalKey<FormState> ratingFormKey = GlobalKey<FormState>();
   final TextEditingController ratingController = TextEditingController();
   int? id;
   OrderBloc(this.orderRepository) : super(OrderState.initial()) {
     on<GetCheckOutEvent>((event, emit) async {
-      emit(state.copyWith(isLoading: true));
+      emit(state.copyWith(isLoading: true, message: null));
       final result = await orderRepository.checkout();
       result.fold(
           (failure) => emit(state.copyWith(
@@ -89,12 +89,14 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
       result.fold(
           (failure) => emit(state.copyWith(
               isLoading: false,
+              isDone: false,
               hasError: true,
               message: 'something went wrong')), (resp) {
         emit(state.copyWith(
             isLoading: false,
             successRespModel: resp,
-            message: 'Successfully',
+            isDone: true,
+            message: 'Success,order placed.',
             showAnimation: true,
             hasError: false));
       });
@@ -150,10 +152,14 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
       result.fold(
           (failure) => emit(state.copyWith(
                 hasError: true,
+                isDone: false,
                 message: 'Insufficient balance',
               )), (resp) {
         emit(state.copyWith(
-            selectWalletResp: resp, message: resp.message, hasError: false));
+            selectWalletResp: resp,
+            message: 'Success',
+            isDone: true,
+            hasError: false));
       });
     });
   }

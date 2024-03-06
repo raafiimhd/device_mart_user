@@ -20,7 +20,4 @@ class ProfileEvent with _$ProfileEvent {
   const factory ProfileEvent.getWalletEvent() = GetWalletEvent;
   const factory ProfileEvent.getWalletHistoryEvent() = GetWalletHistoryEvent;
   const factory ProfileEvent.createWalletEvent() = CreateWalletEvent;
-  const factory ProfileEvent.getRefferalBonusEvent() = GetRefferalBonusEvent;
-  const factory ProfileEvent.refferalBonusEvent(
-      {required RefferalBonusQurrey refferalBonusQurrey}) = RefferalBonusEvent;
 }

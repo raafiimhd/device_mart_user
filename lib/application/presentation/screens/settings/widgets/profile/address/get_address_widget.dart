@@ -19,7 +19,7 @@ class GetAddressWidget extends StatelessWidget {
           return const Text('Nothing to show');
         }
         if (state.getAddressModel == null) {
-          return Center(child: const Text('You haven\'t added an address yet'));
+          return const Center(child: Text('You haven\'t added an address yet'));
         } else if (state.getAddressModel != null) {
           return ListView.separated(
             shrinkWrap: true,
@@ -44,7 +44,7 @@ class GetAddressWidget extends StatelessWidget {
                     icon: const Icon(Icons.more_vert, color: kBlack),
                     itemBuilder: (context) => [
                           PopupMenuItem(
-                            child: Text('Delete'),
+                            child: const Text('Delete'),
                             onTap: () {
                               _deleteShowDialog(context,
                                   context.read<ProfileBloc>(), address.id!);
@@ -57,7 +57,7 @@ class GetAddressWidget extends StatelessWidget {
             separatorBuilder: (context, index) => const Divider(),
           );
         } else {
-          return Center(
+          return const Center(
             child: Text('Something Error'),
           );
         }
@@ -70,11 +70,11 @@ class GetAddressWidget extends StatelessWidget {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text(
+            title: const Text(
               'Delete Address',
               style: headStyle,
             ),
-            content: Text(
+            content: const Text(
               'Are you sure you want to delete the address?',
               style: TextStyle(
                 fontSize: 16,
@@ -85,7 +85,7 @@ class GetAddressWidget extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: Text(
+                  child: const Text(
                     'No',
                     style: TextStyle(color: kBlack),
                   )),
@@ -95,7 +95,7 @@ class GetAddressWidget extends StatelessWidget {
                         deleteAddressModel: DeleteAddressModel(id: id)));
                     Navigator.of(context).pop();
                   },
-                  child: Text(
+                  child: const Text(
                     'Yes',
                     style: TextStyle(color: kRed),
                   ))

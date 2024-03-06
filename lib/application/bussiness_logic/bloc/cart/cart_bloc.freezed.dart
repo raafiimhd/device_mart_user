@@ -1259,6 +1259,7 @@ mixin _$CartState {
   bool get hasError => throw _privateConstructorUsedError;
   bool get quantityIndicator => throw _privateConstructorUsedError;
   bool get isCoupon => throw _privateConstructorUsedError;
+  bool get isCouponsFetched => throw _privateConstructorUsedError;
   Map<int, int> get cartItems => throw _privateConstructorUsedError;
   bool get isDone => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
@@ -1292,6 +1293,7 @@ abstract class $CartStateCopyWith<$Res> {
       bool hasError,
       bool quantityIndicator,
       bool isCoupon,
+      bool isCouponsFetched,
       Map<int, int> cartItems,
       bool isDone,
       String? message,
@@ -1324,6 +1326,7 @@ class _$CartStateCopyWithImpl<$Res, $Val extends CartState>
     Object? hasError = null,
     Object? quantityIndicator = null,
     Object? isCoupon = null,
+    Object? isCouponsFetched = null,
     Object? cartItems = null,
     Object? isDone = null,
     Object? message = freezed,
@@ -1354,6 +1357,10 @@ class _$CartStateCopyWithImpl<$Res, $Val extends CartState>
       isCoupon: null == isCoupon
           ? _value.isCoupon
           : isCoupon // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isCouponsFetched: null == isCouponsFetched
+          ? _value.isCouponsFetched
+          : isCouponsFetched // ignore: cast_nullable_to_non_nullable
               as bool,
       cartItems: null == cartItems
           ? _value.cartItems
@@ -1424,6 +1431,7 @@ abstract class _$$InitialImplCopyWith<$Res>
       bool hasError,
       bool quantityIndicator,
       bool isCoupon,
+      bool isCouponsFetched,
       Map<int, int> cartItems,
       bool isDone,
       String? message,
@@ -1454,6 +1462,7 @@ class __$$InitialImplCopyWithImpl<$Res>
     Object? hasError = null,
     Object? quantityIndicator = null,
     Object? isCoupon = null,
+    Object? isCouponsFetched = null,
     Object? cartItems = null,
     Object? isDone = null,
     Object? message = freezed,
@@ -1484,6 +1493,10 @@ class __$$InitialImplCopyWithImpl<$Res>
       isCoupon: null == isCoupon
           ? _value.isCoupon
           : isCoupon // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isCouponsFetched: null == isCouponsFetched
+          ? _value.isCouponsFetched
+          : isCouponsFetched // ignore: cast_nullable_to_non_nullable
               as bool,
       cartItems: null == cartItems
           ? _value._cartItems
@@ -1549,6 +1562,7 @@ class _$InitialImpl implements _Initial {
       required this.hasError,
       required this.quantityIndicator,
       required this.isCoupon,
+      required this.isCouponsFetched,
       required final Map<int, int> cartItems,
       required this.isDone,
       this.message,
@@ -1573,6 +1587,8 @@ class _$InitialImpl implements _Initial {
   final bool quantityIndicator;
   @override
   final bool isCoupon;
+  @override
+  final bool isCouponsFetched;
   final Map<int, int> _cartItems;
   @override
   Map<int, int> get cartItems {
@@ -1615,7 +1631,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'CartState(isLoading: $isLoading, hasError: $hasError, quantityIndicator: $quantityIndicator, isCoupon: $isCoupon, cartItems: $cartItems, isDone: $isDone, message: $message, bugTotal: $bugTotal, discount: $discount, cartModel: $cartModel, getCartRespModel: $getCartRespModel, addCartRespModel: $addCartRespModel, incrementAndDecrementRespModel: $incrementAndDecrementRespModel, removeCartRespModel: $removeCartRespModel, applyCouponRespModel: $applyCouponRespModel, getCouponRespModel: $getCouponRespModel, coupon: $coupon)';
+    return 'CartState(isLoading: $isLoading, hasError: $hasError, quantityIndicator: $quantityIndicator, isCoupon: $isCoupon, isCouponsFetched: $isCouponsFetched, cartItems: $cartItems, isDone: $isDone, message: $message, bugTotal: $bugTotal, discount: $discount, cartModel: $cartModel, getCartRespModel: $getCartRespModel, addCartRespModel: $addCartRespModel, incrementAndDecrementRespModel: $incrementAndDecrementRespModel, removeCartRespModel: $removeCartRespModel, applyCouponRespModel: $applyCouponRespModel, getCouponRespModel: $getCouponRespModel, coupon: $coupon)';
   }
 
   @override
@@ -1631,6 +1647,8 @@ class _$InitialImpl implements _Initial {
                 other.quantityIndicator == quantityIndicator) &&
             (identical(other.isCoupon, isCoupon) ||
                 other.isCoupon == isCoupon) &&
+            (identical(other.isCouponsFetched, isCouponsFetched) ||
+                other.isCouponsFetched == isCouponsFetched) &&
             const DeepCollectionEquality()
                 .equals(other._cartItems, _cartItems) &&
             (identical(other.isDone, isDone) || other.isDone == isDone) &&
@@ -1665,6 +1683,7 @@ class _$InitialImpl implements _Initial {
       hasError,
       quantityIndicator,
       isCoupon,
+      isCouponsFetched,
       const DeepCollectionEquality().hash(_cartItems),
       isDone,
       message,
@@ -1692,6 +1711,7 @@ abstract class _Initial implements CartState {
       required final bool hasError,
       required final bool quantityIndicator,
       required final bool isCoupon,
+      required final bool isCouponsFetched,
       required final Map<int, int> cartItems,
       required final bool isDone,
       final String? message,
@@ -1714,6 +1734,8 @@ abstract class _Initial implements CartState {
   bool get quantityIndicator;
   @override
   bool get isCoupon;
+  @override
+  bool get isCouponsFetched;
   @override
   Map<int, int> get cartItems;
   @override

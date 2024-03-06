@@ -12,7 +12,7 @@ Datum _$DatumFromJson(Map<String, dynamic> json) => Datum(
           ? null
           : DateTime.parse(json['transaction_time'] as String),
       userId: json['user_id'] as int?,
-      amount: json['amount'] as int?,
+      amount: (json['amount'] as num?)?.toDouble(),
       transactionType: json['transaction_type'] as String?,
     );
 
