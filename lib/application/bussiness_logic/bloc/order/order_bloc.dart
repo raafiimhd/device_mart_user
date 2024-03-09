@@ -34,7 +34,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
   int? id;
   OrderBloc(this.orderRepository) : super(OrderState.initial()) {
     on<GetCheckOutEvent>((event, emit) async {
-      emit(state.copyWith(isLoading: true, message: null));
+      emit(state.copyWith(isLoading: true));
       final result = await orderRepository.checkout();
       result.fold(
           (failure) => emit(state.copyWith(

@@ -3,6 +3,7 @@ import 'package:device/application/bussiness_logic/bloc/inventory/inventory_bloc
 import 'package:device/application/presentation/screens/home/widgets/category_widgets/category_list.dart';
 import 'package:device/application/presentation/screens/home/widgets/inventory_widgets/inventory_list.dart';
 import 'package:device/application/presentation/widgets/custom/custom_appbar/custom_appbar.dart';
+import 'package:device/application/presentation/widgets/custom/custom_search/custom_search_field.dart';
 import 'package:device/domain/core/color/colors.dart';
 import 'package:device/domain/core/constants/const.dart';
 import 'package:device/domain/models/category_models/category_qurrey_model/category_qurrey_model.dart';

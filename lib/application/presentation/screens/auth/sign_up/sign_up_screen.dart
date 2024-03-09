@@ -25,126 +25,107 @@ class SignUpScreen extends StatelessWidget {
           if (state.signIUPHasError) {
             showSnack(context: context, message: state.message!, color: kRed);
           }
+          if (state.signUpRespModel != null) {
+            Navigator.of(context)
+                .pushNamedAndRemoveUntil(Routes.signInPage, (route) => false);
+          } else if (state.signIUPHasError && state.message != null) {
+            messageSnackbar(
+                context: context, message: state.message!, isError: true);
+          }
         },
         builder: (context, state) {
+          if (state.signUpIsLoading) {
+            return Center(
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: LoadingAnimationWidget.inkDrop(color: kBlack, size: 25),
+              ),
+            );
+          }
           return SingleChildScrollView(
             child: Stack(
               children: [
                 Center(
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
-                    child: Hero(
-                      tag: 'test',
-                      child: Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: SingleChildScrollView(
-                          child: Form(
-                            key: signupBloc.signUpKey,
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                LottieBuilder.asset(
-                                    'assets/lottie_files/login.json',
-                                    height: size.width * 0.5),
-                                Material(
-                                  child: Text(
-                                    'Sign-Up',
-                                    style: TextStyle(
-                                        color: Theme.of(context).primaryColor,
-                                        fontSize: 17,
-                                        fontWeight: FontWeight.w800),
-                                  ),
-                                ),
-                                Space.y(10),
-                                CustomTextFormField(
-                                  keyboardType: TextInputType.name,
-                                  hintText: 'Name',
-                                  controller: signupBloc.usernameController,
-                                  prefixIcon: Iconsax.user,
-                                ),
-                                CustomTextFormField(
-                                  keyboardType: TextInputType.emailAddress,
-                                  hintText: 'e-mail',
-                                  controller: signupBloc.emailController,
-                                  prefixIcon: Iconsax.sms,
-                                ),
-                                Material(
-                                  child: CustomTextFormField(
-                                    keyboardType: TextInputType.visiblePassword,
-                                    hintText: 'Password',
-                                    controller: signupBloc.passwordController,
-                                    prefixIcon: Iconsax.lock,
-                                    isPassword: true,
-                                  ),
-                                ),
-                                Material(
-                                  child: CustomTextFormField(
-                                    hintText: 'Conform Password',
-                                    controller:
-                                        signupBloc.conformPasswordController,
-                                    keyboardType: TextInputType.visiblePassword,
-                                    isPassword: true,
-                                    prefixIcon: Iconsax.lock,
-                                  ),
-                                ),
-                                BlocConsumer<AuthBloc, AuthState>(
-                                  listener: (context, state) {
-                                    if (state.signUpRespModel != null) {
-                                      Navigator.of(context)
-                                          .pushNamedAndRemoveUntil(
-                                              Routes.signInPage,
-                                              (route) => false);
-                                    } else if (state.signIUPHasError &&
-                                        state.message != null) {
-                                      messageSnackbar(
-                                          context: context,
-                                          message: state.message!,
-                                          isError: true);
-                                    }
-                                  },
-                                  builder: (context, state) {
-                                    if (state.signUpIsLoading) {
-                                      return Center(
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(10.0),
-                                          child: LoadingAnimationWidget.inkDrop(
-                                              color: kBlack, size: 25),
-                                        ),
-                                      );
-                                    }
-                                    return CustomElevatedButton(
-                                      buttonLabel: "Signup",
-                                      onPressed: () {
-                                        if (signupBloc.signUpKey.currentState!
-                                            .validate()) {
-                                          FocusScope.of(context).unfocus();
-                                          signupBloc.add(const SignUP());
-                                        }
-                                      },
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: SingleChildScrollView(
+                        child: Form(
+                          key: signupBloc.signUpKey,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              LottieBuilder.asset(
+                                  'assets/lottie_files/login.json',
+                                  height: size.width * 0.5),
+                              Text(
+                                'Sign-Up',
+                                style: TextStyle(
+                                    color: Theme.of(context).primaryColor,
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w800),
+                              ),
+                              Space.y(10),
+                              CustomTextFormField(
+                                keyboardType: TextInputType.name,
+                                hintText: 'Name',
+                                controller: signupBloc.usernameController,
+                                prefixIcon: Iconsax.user,
+                              ),
+                              CustomTextFormField(
+                                keyboardType: TextInputType.emailAddress,
+                                hintText: 'e-mail',
+                                controller: signupBloc.emailController,
+                                prefixIcon: Iconsax.sms,
+                              ),
+                              CustomTextFormField(
+                                keyboardType: TextInputType.visiblePassword,
+                                hintText: 'Password',
+                                controller: signupBloc.passwordController,
+                                prefixIcon: Iconsax.lock,
+                                isPassword: true,
+                              ),
+                              CustomTextFormField(
+                                hintText: 'Conform Password',
+                                controller:
+                                    signupBloc.conformPasswordController,
+                                keyboardType: TextInputType.visiblePassword,
+                                isPassword: true,
+                                prefixIcon: Iconsax.lock,
+                              ),
+                              CustomElevatedButton(
+                                buttonLabel: "Signup",
+                                onPressed: () {
+                                  if (signupBloc.signUpKey.currentState!
+                                      .validate()) {
+                                    FocusScope.of(context).unfocus();
+                                    signupBloc.add(const SignUP());
+                                  }
+                                },
+                              ),
+                              Space.y(10),
+                              const Material(
+                                  child: Text("Already have an account?")),
+                              Material(
+                                child: InkWell(
+                                  onTap: () {
+                                    Navigator.of(context)
+                                        .pushNamedAndRemoveUntil(
+                                      Routes.signInPage,
+                                      (route) => false,
                                     );
                                   },
-                                ),
-                                Space.y(10),
-                                const Material(
-                                    child: Text("Already have an account?")),
-                                Material(
-                                  child: InkWell(
-                                    onTap: () {
-                                      Navigator.of(context)
-                                          .pushReplacementNamed(
-                                              Routes.signInPage);
-                                    },
-                                    child: const Text(
-                                      'Sign In',
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w900,
-                                          color: kBlack),
-                                    ),
+                                  child: const Text(
+                                    'Sign In',
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w900,
+                                        color: kBlack),
                                   ),
-                                )
-                              ],
-                            ),
+                                ),
+                              )
+                            ],
                           ),
                         ),
                       ),

@@ -1,5 +1,5 @@
 class ApiEndPoint {
-  static String baseUrl = 'http://10.0.2.2:3000/api/v1';
+  static String baseUrl = 'https://devicemart.store/api/v1';
   static String signInEndPoint = '/login';
   static String signUpEndPoint = '/sign-up';
   static String sentOtpEndPoint = '/send-otp';

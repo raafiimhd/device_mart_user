@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:lottie/lottie.dart';
-
+ 
 class SearchListWidgets extends StatelessWidget {
   const SearchListWidgets({super.key});
 

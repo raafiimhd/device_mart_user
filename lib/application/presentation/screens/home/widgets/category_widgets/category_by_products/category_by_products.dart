@@ -15,39 +15,41 @@ class CategoryDetailContainer extends StatelessWidget {
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          InkWell(
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (ctx) => InventoryDetails(
-                          isWishlisted: inventory.isWishlisted ?? false,
-                          id: inventory.id!,
-                        )));
-              },
-              child: ImageShowContainerCategoryProduct(
-                width: 0.90,
-                inventory: inventory,
-              )),
-          Text(
-            inventory.productName!,
-            style: headStyle,
-          ),
-          kHeightFive,
-          Row(
-            children: [
-              Text(
-                '₹ ${inventory.price!}',
-                style: priceStyle,
-              ),
-            ],
-          ),
-          BottomButtonsDetails(
-            id: inventory.id!,
-            isWishlisted: inventory.isWishlisted ?? false,
-          )
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            InkWell(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (ctx) => InventoryDetails(
+                            isWishlisted: inventory.isWishlisted ?? false,
+                            id: inventory.id!,
+                          )));
+                },
+                child: ImageShowContainerCategoryProduct(
+                  width: 0.90,
+                  inventory: inventory,
+                )),
+            Text(
+              inventory.productName!,
+              style: headStyle,
+            ),
+            kHeightFive,
+            Row(
+              children: [
+                Text(
+                  '₹ ${inventory.price!}',
+                  style: priceStyle,
+                ),
+              ],
+            ),
+            BottomButtonsDetails(
+              id: inventory.id!,
+              isWishlisted: inventory.isWishlisted ?? false,
+            )
+          ],
+        ),
       ),
     );
   }

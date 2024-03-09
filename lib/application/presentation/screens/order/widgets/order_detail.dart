@@ -48,7 +48,7 @@ class OrderDetailViews extends StatelessWidget {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const OrderTraker(),
+                     OrderTraker(status:data.orderStatus! ),
                     const Divider(),
                     OrderDetailItemTile(data: data),
                     const Divider(),

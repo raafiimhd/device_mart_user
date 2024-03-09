@@ -1,5 +1,4 @@
 import 'package:device/application/bussiness_logic/bloc/inventory/inventory_bloc.dart';
-import 'package:device/domain/core/color/colors.dart';
 import 'package:device/domain/core/constants/const.dart';
 import 'package:device/domain/models/search_models/search_qurrey_model/search_qurrey_model.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +15,7 @@ class CustomSearchField extends StatelessWidget {
         height: sWidth * 0.10,
         width: double.infinity,
         decoration: const BoxDecoration(
-            color: sColor, borderRadius: BorderRadius.all(Radius.circular(10))),
+            color: Color.fromARGB(255, 237, 236, 236), borderRadius: BorderRadius.all(Radius.circular(5))),
         child: TextFormField(
           onChanged: (value) {
             context.read<InventoryBloc>().add(InventoryEvent.searchEvent(

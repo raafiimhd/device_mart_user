@@ -18,8 +18,9 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 class ScreenCheckout extends StatefulWidget {
-  const ScreenCheckout({super.key, required this.totalAmount});
+  const ScreenCheckout({Key? key, required this.totalAmount}) : super(key: key);
   final int totalAmount;
+
   @override
   State<ScreenCheckout> createState() => _ScreenCheckoutState();
 }
@@ -28,6 +29,7 @@ class _ScreenCheckoutState extends State<ScreenCheckout> {
   int priceTotal = 0;
   var razorpay = Razorpay();
   bool isPlaceOrderClicked = false;
+
   @override
   void initState() {
     context.read<OrderBloc>().add(const GetRazorpayEvent());
@@ -45,10 +47,12 @@ class _ScreenCheckoutState extends State<ScreenCheckout> {
 
   void _handlePaymentSuccess(PaymentSuccessResponse response) async {
     context.read<OrderBloc>().add(OrderEvent.razorpayProcess(
-        razorpayProcesModel: RazorpayProcesModel(
-            razorpayPaymentId: response.paymentId,
-            razorpayOrderId: response.orderId,
-            razorpaySignature: response.signature)));
+      razorpayProcesModel: RazorpayProcesModel(
+        razorpayPaymentId: response.paymentId,
+        razorpayOrderId: response.orderId,
+        razorpaySignature: response.signature,
+      ),
+    ));
     log("placed order");
     showDialog(
       context: context,
@@ -57,12 +61,14 @@ class _ScreenCheckoutState extends State<ScreenCheckout> {
           content: const Text("Payment is Success"),
           actions: [
             TextButton(
-                onPressed: () {
-                  Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute(builder: (context) => MainPage()),
-                      (route) => false);
-                },
-                child: const Text("Ok")),
+              onPressed: () {
+                Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(builder: (context) => MainPage()),
+                  (route) => false,
+                );
+              },
+              child: const Text("Ok"),
+            ),
           ],
         );
       },
@@ -78,10 +84,11 @@ class _ScreenCheckoutState extends State<ScreenCheckout> {
           content: Text(response.message.toString()),
           actions: [
             TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: const Text("Ok")),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text("Ok"),
+            ),
           ],
         );
       },
@@ -89,16 +96,18 @@ class _ScreenCheckoutState extends State<ScreenCheckout> {
   }
 
   void _handleExternalWallet(ExternalWalletResponse response) {}
+
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
       context.read<OrderBloc>().add(const OrderEvent.getCheckoutEvent());
       context.read<ProfileBloc>().add(const ProfileEvent.getAddressEvent());
     });
     return Scaffold(
       appBar: const PreferredSize(
-          preferredSize: Size.fromHeight(56),
-          child: CustomAppBar(title: 'Checkout')),
+        preferredSize: Size.fromHeight(56),
+        child: CustomAppBar(title: 'Checkout'),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -119,78 +128,68 @@ class _ScreenCheckoutState extends State<ScreenCheckout> {
                 child: BlocConsumer<OrderBloc, OrderState>(
                   listener: (context, state) {
                     if (state.hasError) {
-                      showSnack(
-                          context: context,
-                          message: state.message!,
-                          color: kRed);
+                      showSnack(context: context, message: state.message!, color: kRed);
                     }
-                    if (isPlaceOrderClicked&&state.isDone &&
-                        state.message == 'Success,order placed.') {
+                    if (isPlaceOrderClicked &&
+                        state.isDone &&
+                        (state.message == 'Success,order placed.' || state.message == 'Success')) {
                       Navigator.of(context).pushAndRemoveUntil(
-                          MaterialPageRoute(
-                              builder: (context) => AnimationScreen(
-                                    id: state.selectPayementId!,
-                                  )),
-                          (route) => false);
-                    }
-                    if (isPlaceOrderClicked&&state.isDone && state.message == 'Success') {
-                      Navigator.of(context).pushAndRemoveUntil(
-                          MaterialPageRoute(
-                              builder: (context) => AnimationScreen(
-                                    id: state.selectPayementId!,
-                                  )),
-                          (route) => false);
+                        MaterialPageRoute(
+                          builder: (context) => AnimationScreen(
+                            id: state.selectPayementId!,
+                          ),
+                        ),
+                        (route) => false,
+                      );
                     }
                   },
                   builder: (context, state) {
                     if (state.isLoading) {
                       return Center(
-                          child: LoadingAnimationWidget.inkDrop(
-                              color: kWhite, size: 25));
+                        child: LoadingAnimationWidget.inkDrop(color: kWhite, size: 25),
+                      );
                     }
                     if (state.checkoutModel == null ||
                         state.checkoutModel!.data == null ||
                         state.checkoutModel!.data!.items == null ||
                         state.checkoutModel!.data!.items!.isEmpty) {
-                      return const Text('items is empty');
+                      return const Text('Items is empty');
                     }
                     return ListView.builder(
-                        itemCount: state.checkoutModel!.data!.items!.length,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          final data = state.checkoutModel!.data!.items![index];
-                          priceTotal = data.price!;
-                          return Column(
-                            children: [
-                              Container(
-                                height: 100,
-                                width: 140,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: NetworkImage(
-                                      data.images!['urls'].first,
-                                    ),
+                      itemCount: state.checkoutModel!.data!.items!.length,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        final data = state.checkoutModel!.data!.items![index];
+                        priceTotal = data.price!;
+                        return Column(
+                          children: [
+                            Container(
+                              height: 100,
+                              width: 140,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: NetworkImage(data.images!['urls'].first),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: sWidth * 0.25,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    data.productName!,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: headStyle,
                                   ),
-                                ),
+                                  Text('₹ ${widget.totalAmount} X ${data.qty}')
+                                ],
                               ),
-                              SizedBox(
-                                width: sWidth * 0.25,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      data.productName!,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: headStyle,
-                                    ),
-                                    Text(
-                                        '₹ ${widget.totalAmount} X ${data.qty}')
-                                  ],
-                                ),
-                              ),
-                            ],
-                          );
-                        });
+                            ),
+                          ],
+                        );
+                      },
+                    );
                   },
                 ),
               ),
@@ -206,19 +205,14 @@ class _ScreenCheckoutState extends State<ScreenCheckout> {
             return ElevatedButton(
               onPressed: () {
                 if (context.read<ProfileBloc>().defaultAddress == null) {
-                  showSnack(
-                      context: context, message: 'Add address and try again');
+                  showSnack(context: context, message: 'Add address and try again');
                   return;
                 } else if (state.selectPayementId == null) {
-                  
-                  showSnack(
-                      context: context, message: 'Choose a payment option');
+                  showSnack(context: context, message: 'Choose a payment option');
                   return;
                 } else if (state.selectPayementId == 1) {
                   isPlaceOrderClicked = true;
-                  context
-                      .read<OrderBloc>()
-                      .add(const OrderEvent.cashOnDeliveryEvent());
+                  context.read<OrderBloc>().add(const OrderEvent.cashOnDeliveryEvent());
                 } else if (state.selectPayementId == 2) {
                   if (state.razor != null) {
                     paymentFunction(razor: state.razor!);
@@ -253,9 +247,7 @@ class _ScreenCheckoutState extends State<ScreenCheckout> {
 }
 
 class ChoosePaymentMethod extends StatelessWidget {
-  const ChoosePaymentMethod({
-    super.key,
-  });
+  const ChoosePaymentMethod({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -270,8 +262,8 @@ class ChoosePaymentMethod extends StatelessWidget {
           builder: (context, state) {
             if (state.isLoading) {
               return Center(
-                  child:
-                      LoadingAnimationWidget.inkDrop(color: kWhite, size: 25));
+                child: LoadingAnimationWidget.inkDrop(color: kWhite, size: 25),
+              );
             }
             if (state.checkoutModel == null ||
                 state.checkoutModel!.data == null ||
@@ -280,10 +272,10 @@ class ChoosePaymentMethod extends StatelessWidget {
               return const Text(
                   'Please Conform Do You have a address or network connection');
             }
-            final methods = state.checkoutModel!.data!.paymentOptions;
+            final methods = state.checkoutModel!.data!.paymentOptions!;
             return Wrap(
               children: List.generate(
-                methods!.length,
+                methods.length,
                 (int index) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -294,8 +286,8 @@ class ChoosePaymentMethod extends StatelessWidget {
                       selected: methods[index].id != null &&
                           state.selectPayementId == methods[index].id,
                       onSelected: (bool selected) {
-                        context.read<OrderBloc>().add(OrderEvent.selectPayement(
-                            selectPayementId: methods[index].id!));
+                        context.read<OrderBloc>().add(
+                            OrderEvent.selectPayement(selectPayementId: methods[index].id!));
                       },
                     ),
                   );
@@ -310,9 +302,7 @@ class ChoosePaymentMethod extends StatelessWidget {
 }
 
 class CheckOutAddressTile extends StatelessWidget {
-  const CheckOutAddressTile({
-    super.key,
-  });
+  const CheckOutAddressTile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
